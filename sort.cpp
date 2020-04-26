@@ -4,7 +4,6 @@
 
 #include "sort.h"
 #include "common.h"
-#include <iostream>
 
 /*
 
