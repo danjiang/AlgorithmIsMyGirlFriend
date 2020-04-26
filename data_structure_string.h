@@ -7,5 +7,7 @@
 
 void TestDigitToInt();
 void TestAlphaToInt();
+void TestReverseSentence();
+void TestLeftRotateString();
 
 #endif //ALGORITHMISMYGIRLFRIEND_DATA_STRUCTURE_STRING_H
