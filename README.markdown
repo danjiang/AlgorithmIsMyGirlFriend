@@ -9,10 +9,10 @@
 - [两个有序（从小到大）单链表，构造一条新链表，包含同时出现在两个链表的节点](data_structure_linklist.cpp#L107)
 ## 数据操作
 ### 排序
-- [冒泡排序](sort.cpp#L22)
-- [插入排序](sort.cpp#L50)
-- [快速排序](sort.cpp#L83)
-- [归并排序](sort.cpp#L133)
+- [冒泡排序](sort.cpp#L23)
+- [插入排序](sort.cpp#L52)
+- [快速排序](sort.cpp#L87)
+- [归并排序](sort.cpp#L138)
 ## 优化时间和空间效率
 ### 时间效率
 - [整数数组中查找最长递增序列](time_efficiency.cpp#L13)

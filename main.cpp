@@ -1,16 +1,23 @@
-#include <iostream>
-#include "common.h"
 #include "sort.h"
 #include "data_structure_string.h"
 #include "time_efficiency.h"
 #include "data_structure_linklist.h"
 
 int main() {
-//    int array[] = {5, 1, 4, 2, 8};
-//    int size = 5;
-//    MergeSort(array, size, 0, size - 1);
-//    PrintArray(array, size);
+//  TestDigitToInt();
+//  TestAlphaToInt();
+//  TestReverseSentence();
+//  TestLeftRotateString();
 
-    TestListNode();
-    return 0;
+//  TestListNode();
+//  TestPrintListReverse();
+//  TestFindMiddleNode();
+//  TestIntersectTwoSortedList();
+
+//  TestBubbleSort();
+//  TestInsertionSort();
+//  TestQuickSort();
+//  TestMergeSort();
+
+  TestFindLongestSeq();
 }
