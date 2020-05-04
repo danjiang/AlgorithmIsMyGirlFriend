@@ -13,11 +13,18 @@ int main() {
 //  TestPrintListReverse();
 //  TestFindMiddleNode();
 //  TestIntersectTwoSortedList();
+//  TestDeleteNode();
+//  TestDeleteDuplication();
+//  TestFindKthToTail();
+//  TestEntryNodeOfLoop();
+//  TestReverseList();
+//  TestMergeList();
+  TestFindFirstCommonNode();
 
 //  TestBubbleSort();
 //  TestInsertionSort();
 //  TestQuickSort();
 //  TestMergeSort();
 
-  TestFindLongestSeq();
+//  TestFindLongestSeq();
 }
