@@ -3,4 +3,4 @@ project(AlgorithmIsMyGirlFriend)
 
 set(CMAKE_CXX_STANDARD 11)
 
-add_executable(AlgorithmIsMyGirlFriend main.cpp common.cpp common.h sort.cpp sort.h data_structure_string.cpp data_structure_string.h time_efficiency.cpp time_efficiency.h data_structure_linklist.cpp data_structure_linklist.h)
+add_executable(AlgorithmIsMyGirlFriend main.cpp common.cpp common.h sort.cpp sort.h data_structure_string.cpp data_structure_string.h time_efficiency.cpp time_efficiency.h data_structure_linklist.cpp data_structure_linklist.h data_structure_tree.cpp data_structure_tree.h)

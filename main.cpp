@@ -2,6 +2,7 @@
 #include "data_structure_string.h"
 #include "time_efficiency.h"
 #include "data_structure_linklist.h"
+#include "data_structure_tree.h"
 
 int main() {
 //  TestDigitToInt();
@@ -19,7 +20,10 @@ int main() {
 //  TestEntryNodeOfLoop();
 //  TestReverseList();
 //  TestMergeList();
-  TestFindFirstCommonNode();
+//  TestFindFirstCommonNode();
+
+//  TestBinaryTree();
+  TestFindKthNodeInBST();
 
 //  TestBubbleSort();
 //  TestInsertionSort();
