@@ -23,7 +23,8 @@ int main() {
 //  TestFindFirstCommonNode();
 
 //  TestBinaryTree();
-  TestFindKthNodeInBST();
+//  TestFindKthNodeInBST();
+  TestConstruct();
 
 //  TestBubbleSort();
 //  TestInsertionSort();

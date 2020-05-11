@@ -86,6 +86,56 @@ BinaryTreeNode* FindKthNodeInBST(BinaryTreeNode *root, int k) {
   return FindKthNodeInBSTCore(root, k);
 }
 
+BinaryTreeNode* ConstructCore(int *start_preorder, int *end_preorder,
+    int *start_inorder, int *end_inorder) {
+  int root_value = *start_preorder; // first node of preorder is root node
+
+  BinaryTreeNode *root = new BinaryTreeNode();
+  root->value = root_value;
+  root->left = nullptr;
+  root->right = nullptr;
+
+  if (start_preorder == end_preorder) {
+    if (start_preorder == end_preorder && *start_preorder == *start_inorder) {
+      return root;
+    } else {
+      std::cout << "Invalid input." << std::endl;
+      return nullptr;
+    }
+  }
+
+  int *root_inorder = start_inorder; // find root node in inorder
+  while (root_inorder <= end_inorder) {
+    if (*root_inorder == root_value) {
+      break;
+    } else if (root_inorder == end_inorder) {
+      std::cout << "Invalid input." << std::endl;
+      return nullptr;
+    } else {
+      root_inorder++;
+    }
+  }
+
+  int left_length = root_inorder - start_inorder;
+  if (left_length > 0) {
+    root->left = ConstructCore(start_preorder + 1, start_preorder + left_length, start_inorder, root_inorder - 1);
+  }
+  int right_length = end_inorder - root_inorder;
+  if (right_length > 0) {
+    root->right = ConstructCore(end_preorder - right_length + 1, end_preorder, root_inorder + 1, root_inorder + right_length);
+  }
+
+  return root;
+}
+
+BinaryTreeNode* Construct(int *preorder, int *inorder, int length) {
+  if (preorder == nullptr || inorder == nullptr || length <= 0) {
+    return nullptr;
+  }
+  return ConstructCore(preorder, preorder + length - 1,
+      inorder, inorder + length - 1);
+}
+
 void TestBinaryTree() {
   BinaryTreeNode *tree = nullptr;
   BinarySearchTreeInsert(&tree, 10);
@@ -147,4 +197,49 @@ void TestFindKthNodeInBST() {
   std::cout << ((FindKthNodeInBST(tree4, 3) == nullptr) ? "Test4 Pass" : "Test4 Fail") << std::endl;
 
   std::cout << ((FindKthNodeInBST(nullptr, 3) == nullptr) ? "Test5 Pass" : "Test5 Fail") << std::endl;
+}
+
+void TestConstruct() {
+  const int length1 = 8;
+  int preorder1[length1] = { 1, 2, 4, 7, 3, 5, 6, 8 };
+  int inorder1[length1] = { 4, 7, 2, 1, 5, 3, 8, 6 };
+  BinaryTreeNode *tree1 = Construct(preorder1, inorder1, length1);
+  PreorderBinaryTreeWalk(tree1);
+  std::cout << std::endl;
+  InorderBinaryTreeWalk(tree1);
+  std::cout << std::endl;
+
+  const int length2 = 5;
+  int preorder2[length2] = { 1, 2, 3, 4, 5 };
+  int inorder2[length2] = { 5, 4, 3, 2, 1 };
+  BinaryTreeNode *tree2 = Construct(preorder2, inorder2, length2);
+  PreorderBinaryTreeWalk(tree2);
+  std::cout << std::endl;
+  InorderBinaryTreeWalk(tree2);
+  std::cout << std::endl;
+
+  const int length3 = 5;
+  int preorder3[length3] = { 1, 2, 3, 4, 5 };
+  int inorder3[length3] = { 1, 2, 3, 4, 5 };
+  BinaryTreeNode *tree3 = Construct(preorder3, inorder3, length3);
+  PreorderBinaryTreeWalk(tree3);
+  std::cout << std::endl;
+  InorderBinaryTreeWalk(tree3);
+  std::cout << std::endl;
+
+  const int length4 = 1;
+  int preorder4[length4] = { 1 };
+  int inorder4[length4] = { 1 };
+  BinaryTreeNode *tree4 = Construct(preorder4, inorder4, length4);
+  PreorderBinaryTreeWalk(tree4);
+  std::cout << std::endl;
+  InorderBinaryTreeWalk(tree4);
+  std::cout << std::endl;
+
+  std::cout << (Construct(nullptr, nullptr, 0) == nullptr ? "Test5 Pass" : "Test5 Fail") << std::endl;
+
+  const int length6 = 7;
+  int preorder6[length6] = { 1, 2, 4, 5, 3, 6, 7 };
+  int inorder6[length6] = { 4, 2, 8, 1, 6, 3, 7 };
+  Construct(preorder6, inorder6, length6);
 }
