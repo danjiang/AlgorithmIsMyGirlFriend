@@ -25,6 +25,9 @@ int main() {
 //  TestBinaryTree();
 //  TestFindKthNodeInBST();
   TestConstruct();
+//  TestTreeHasSubTree();
+//  TestMirrorTree();
+//  TestTopToBottomBinaryTreeWalk();
 
 //  TestBubbleSort();
 //  TestInsertionSort();

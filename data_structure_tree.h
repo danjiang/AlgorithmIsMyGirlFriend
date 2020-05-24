@@ -8,5 +8,8 @@
 void TestBinaryTree();
 void TestFindKthNodeInBST();
 void TestConstruct();
+void TestTreeHasSubTree();
+void TestMirrorTree();
+void TestTopToBottomBinaryTreeWalk();
 
 #endif //ALGORITHMISMYGIRLFRIEND__DATA_STRUCTURE_TREE_H_

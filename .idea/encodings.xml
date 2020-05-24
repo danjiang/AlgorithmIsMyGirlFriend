@@ -2,5 +2,6 @@
 <project version="4">
   <component name="Encoding">
     <file url="mock:///DeleteNodeInList.cpp" charset="US-ASCII" />
+    <file url="mock:///PrintTreesInLines.cpp" charset="GBK" />
   </component>
 </project>
