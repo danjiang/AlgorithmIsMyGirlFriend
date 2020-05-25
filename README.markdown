@@ -47,7 +47,7 @@
 - [从上到下打印二叉树](data_structure_tree.cpp#L203)
 - [分行从上到下打印二叉树](data_structure_tree.cpp#L227)
 - [之字形从上到下打印二叉树](data_structure_tree.cpp#L263)
-- [输入一个整数数组，判断该数组是不是某二叉搜索树的后序遍历结果](data_structure_tree.cpp#L362)
+- [输入一个整数数组，判断该数组是不是某二叉搜索树的后序遍历结果](data_structure_tree.cpp#L363j)
 - [输入一颗二叉树和一个整数，打印出二叉树中节点值的和为输入整数的所有路径（从树的根节点开始往下一直到叶节点所经过的节点形成一条路径）](data_structure_tree.cpp#L421)
 
 ## 数据操作
