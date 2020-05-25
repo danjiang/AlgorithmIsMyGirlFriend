@@ -24,10 +24,12 @@ int main() {
 
 //  TestBinaryTree();
 //  TestFindKthNodeInBST();
-  TestConstruct();
+//  TestConstruct();
 //  TestTreeHasSubTree();
 //  TestMirrorTree();
 //  TestTopToBottomBinaryTreeWalk();
+//  TestIsPostorderSequenceOfBST();
+  TestFindPath();
 
 //  TestBubbleSort();
 //  TestInsertionSort();

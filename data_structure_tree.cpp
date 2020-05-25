@@ -8,6 +8,7 @@
 #include <iomanip>
 #include <deque>
 #include <stack>
+#include <vector>
 
 struct BinaryTreeNode {
   int value;
@@ -357,6 +358,74 @@ void TopToBottomLineBreakEmptyBinaryTreeWalk(BinaryTreeNode *root) {
       next_level_count = 0;
     }
   }
+}
+
+bool IsPostorderSequenceOfBST(int *sequence, int length) {
+  if (sequence == nullptr || length <= 0) {
+    return false;
+  }
+
+  int root = sequence[length - 1];
+
+  int i = 0;
+  for (; i < length - 1; ++i) {
+    if (sequence[i] > root) {
+      break;
+    }
+  }
+
+  int j = i;
+  for (; j < length - 1; ++j) {
+    if (sequence[j] < root) {
+      return false;
+    }
+  }
+
+  bool left = true;
+  if (i > 0) {
+    IsPostorderSequenceOfBST(sequence, i);
+  }
+
+  bool right = true;
+  if (i < length - 1) {
+    IsPostorderSequenceOfBST(sequence + i, length - i - 1);
+  }
+
+  return left && right;
+}
+
+void FindPathCore(BinaryTreeNode *root, int expected_sum, std::vector<int> &path, int current_sum) {
+  current_sum += root->value;
+  path.push_back(root->value);
+
+  bool is_leaf = root->left == nullptr && root->right == nullptr;
+  if (current_sum == expected_sum && is_leaf) {
+    std::cout << "A path is found: ";
+    std::vector<int>::iterator it = path.begin();
+    for (; it != path.end(); it++) {
+      std::cout << *it << " ";
+    }
+    std::cout << std::endl;
+  }
+
+  if (root->left != nullptr) {
+    FindPathCore(root->left, expected_sum, path, current_sum);
+  }
+  if (root->right != nullptr) {
+    FindPathCore(root->right, expected_sum, path, current_sum);
+  }
+
+  path.pop_back();
+}
+
+void FindPath(BinaryTreeNode *root, int expected_sum) {
+  if (root == nullptr) {
+    return;
+  }
+
+  std::vector<int> path;
+  int current_sum = 0;
+  FindPathCore(root, expected_sum, path, current_sum);
 }
 
 void TestBinaryTree() {
@@ -790,4 +859,121 @@ void TestTopToBottomBinaryTreeWalk() {
   TopToBottomBinaryTreeWalk(nullptr);
   TopToBottomLineBreakBinaryTreeWalk(nullptr);
   TopToBottomLineBreakZBinaryTreeWalk(nullptr);
+}
+
+void TestIsPostorderSequenceOfBST() {
+//            10
+//         /      \
+//        6        14
+//       /\        /\
+//      4  8     12  16
+  int sequence1[] = { 4, 8, 6, 12, 16, 14, 10 };
+  std::cout << (IsPostorderSequenceOfBST(sequence1, sizeof(sequence1) / sizeof(int)) == true ? "Test1 Passed" : "Test1 Failed") << std::endl;
+
+//           5
+//          / \
+//         4   7
+//            /
+//           6
+  int sequence2[] = { 4, 6, 7, 5 };
+  std::cout << (IsPostorderSequenceOfBST(sequence2, sizeof(sequence2) / sizeof(int)) == true ? "Test2 Passed" : "Test2 Failed") << std::endl;
+
+//               5
+//              /
+//             4
+//            /
+//           3
+//          /
+//         2
+//        /
+//       1
+  int sequence3[] = { 1, 2, 3, 4, 5 };
+  std::cout << (IsPostorderSequenceOfBST(sequence3, sizeof(sequence3) / sizeof(int)) == true ? "Test3 Passed" : "Test3 Failed") << std::endl;
+
+// 1
+//  \
+//   2
+//    \
+//     3
+//      \
+//       4
+//        \
+//         5
+  int sequence4[] = { 5, 4, 3, 2, 1 };
+  std::cout << (IsPostorderSequenceOfBST(sequence4, sizeof(sequence4) / sizeof(int)) == true ? "Test4 Passed" : "Test4 Failed") << std::endl;
+
+  int sequence5[] = { 5 };
+  std::cout << (IsPostorderSequenceOfBST(sequence5, sizeof(sequence5) / sizeof(int)) == true ? "Test5 Passed" : "Test5 Failed") << std::endl;
+
+  int sequence6[] = { 7, 4, 6, 5 };
+  std::cout << (IsPostorderSequenceOfBST(sequence6, sizeof(sequence6) / sizeof(int)) == false ? "Test6 Passed" : "Test6 Failed") << std::endl;
+
+  int sequence7[] = { 4, 6, 12, 8, 16, 14, 10 };
+  std::cout << (IsPostorderSequenceOfBST(sequence7, sizeof(sequence7) / sizeof(int)) == false ? "Test7 Passed" : "Test7 Failed") << std::endl;
+
+  std::cout << (IsPostorderSequenceOfBST(nullptr, 0) == false ? "Test8 Passed" : "Test8 Failed") << std::endl;
+}
+
+void TestFindPath() {
+//            10
+//         /      \
+//        5        12
+//       /\
+//      4  7
+  BinaryTreeNode *node11 = new BinaryTreeNode(10);
+  BinaryTreeNode *node12 = new BinaryTreeNode(5);
+  BinaryTreeNode *node13 = new BinaryTreeNode(12);
+  BinaryTreeNode *node14 = new BinaryTreeNode(4);
+  BinaryTreeNode *node15 = new BinaryTreeNode(7);
+  node11->left = node12;
+  node11->right = node13;
+  node12->left = node14;
+  node12->right = node15;
+  FindPath(node11, 22);
+  FindPath(node11, 15);
+
+//               5
+//              /
+//             4
+//            /
+//           3
+//          /
+//         2
+//        /
+//       1
+  BinaryTreeNode *node21 = new BinaryTreeNode(5);
+  BinaryTreeNode *node22 = new BinaryTreeNode(4);
+  BinaryTreeNode *node23 = new BinaryTreeNode(3);
+  BinaryTreeNode *node24 = new BinaryTreeNode(2);
+  BinaryTreeNode *node25 = new BinaryTreeNode(1);
+  node21->left = node22;
+  node22->left = node23;
+  node23->left = node24;
+  node24->left = node25;
+  FindPath(node21, 15);
+
+// 1
+//  \
+//   2
+//    \
+//     3
+//      \
+//       4
+//        \
+//         5
+  BinaryTreeNode *node31 = new BinaryTreeNode(1);
+  BinaryTreeNode *node32 = new BinaryTreeNode(2);
+  BinaryTreeNode *node33 = new BinaryTreeNode(3);
+  BinaryTreeNode *node34 = new BinaryTreeNode(4);
+  BinaryTreeNode *node35 = new BinaryTreeNode(5);
+  node31->right = node32;
+  node32->right = node33;
+  node33->right = node34;
+  node34->right = node35;
+  FindPath(node31, 16);
+
+  BinaryTreeNode *node41 = new BinaryTreeNode(1);
+  FindPath(node41, 1);
+
+  FindPath(nullptr, 0);
 }
