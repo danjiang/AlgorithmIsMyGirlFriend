@@ -428,6 +428,55 @@ void FindPath(BinaryTreeNode *root, int expected_sum) {
   FindPathCore(root, expected_sum, path, current_sum);
 }
 
+void TreeToListCore(BinaryTreeNode *node, BinaryTreeNode **last_node) {
+  if (node == nullptr) {
+    return;
+  }
+
+  BinaryTreeNode *current_node = node;
+
+  if (current_node->left != nullptr) {
+    TreeToListCore(current_node->left, last_node);
+  }
+
+  current_node->left = *last_node;
+  if (*last_node != nullptr) {
+    (*last_node)->right = current_node;
+  }
+
+  *last_node = current_node;
+
+  if (current_node->right != nullptr) {
+    TreeToListCore(current_node->right, last_node);
+  }
+}
+
+BinaryTreeNode* TreeToList(BinaryTreeNode *root) {
+  BinaryTreeNode *last_node = nullptr;
+
+  TreeToListCore(root, &last_node);
+
+  BinaryTreeNode *head = last_node;
+  while (head != nullptr && head->left != nullptr) {
+    head = head->left;
+  }
+
+  return head;
+}
+
+void WalkTreeAsList(BinaryTreeNode *head) {
+  if (head == nullptr) {
+    std::cout << "empty link list" << std::endl;
+    return;
+  }
+  BinaryTreeNode *node = head;
+  while (node != nullptr){
+    std::cout << node->value << " ";
+    node = node->right;
+  }
+  std::cout << std::endl;
+}
+
 void TestBinaryTree() {
   BinaryTreeNode *tree = nullptr;
   BinarySearchTreeInsert(&tree, 10);
@@ -976,4 +1025,65 @@ void TestFindPath() {
   FindPath(node41, 1);
 
   FindPath(nullptr, 0);
+}
+
+void TestTreeToList() {
+//            10
+//         /      \
+//        6        14
+//       /\        /\
+//      4  8     12  16
+  BinaryTreeNode *tree1 = nullptr;
+  BinarySearchTreeInsert(&tree1, 10);
+  BinarySearchTreeInsert(&tree1, 6);
+  BinarySearchTreeInsert(&tree1, 14);
+  BinarySearchTreeInsert(&tree1, 4);
+  BinarySearchTreeInsert(&tree1, 8);
+  BinarySearchTreeInsert(&tree1, 12);
+  BinarySearchTreeInsert(&tree1, 16);
+  BinaryTreeNode *list1 = TreeToList(tree1);
+  WalkTreeAsList(list1);
+
+//               5
+//              /
+//             4
+//            /
+//           3
+//          /
+//         2
+//        /
+//       1
+  BinaryTreeNode *tree2 = nullptr;
+  BinarySearchTreeInsert(&tree2, 5);
+  BinarySearchTreeInsert(&tree2, 4);
+  BinarySearchTreeInsert(&tree2, 3);
+  BinarySearchTreeInsert(&tree2, 2);
+  BinarySearchTreeInsert(&tree2, 1);
+  BinaryTreeNode *list2 = TreeToList(tree2);
+  WalkTreeAsList(list2);
+
+// 1
+//  \
+//   2
+//    \
+//     3
+//      \
+//       4
+//        \
+//         5
+  BinaryTreeNode *tree3 = nullptr;
+  BinarySearchTreeInsert(&tree3, 1);
+  BinarySearchTreeInsert(&tree3, 2);
+  BinarySearchTreeInsert(&tree3, 3);
+  BinarySearchTreeInsert(&tree3, 4);
+  BinarySearchTreeInsert(&tree3, 5);
+  BinaryTreeNode *list3 = TreeToList(tree3);
+  WalkTreeAsList(list3);
+
+  BinaryTreeNode *tree4 = new BinaryTreeNode(1);
+  BinaryTreeNode *list4 = TreeToList(tree4);
+  WalkTreeAsList(list4);
+
+  BinaryTreeNode *list5 = TreeToList(nullptr);
+  WalkTreeAsList(list5);
 }

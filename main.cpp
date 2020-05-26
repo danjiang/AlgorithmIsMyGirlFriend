@@ -29,7 +29,8 @@ int main() {
 //  TestMirrorTree();
 //  TestTopToBottomBinaryTreeWalk();
 //  TestIsPostorderSequenceOfBST();
-  TestFindPath();
+//  TestFindPath();
+  TestTreeToList();
 
 //  TestBubbleSort();
 //  TestInsertionSort();

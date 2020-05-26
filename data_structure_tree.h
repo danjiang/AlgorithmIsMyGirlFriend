@@ -13,5 +13,6 @@ void TestMirrorTree();
 void TestTopToBottomBinaryTreeWalk();
 void TestIsPostorderSequenceOfBST();
 void TestFindPath();
+void TestTreeToList();
 
 #endif //ALGORITHMISMYGIRLFRIEND__DATA_STRUCTURE_TREE_H_
