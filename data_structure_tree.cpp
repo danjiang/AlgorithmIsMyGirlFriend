@@ -6,6 +6,7 @@
 
 #include <iostream>
 #include <iomanip>
+#include <sstream>
 #include <deque>
 #include <stack>
 #include <vector>
@@ -475,6 +476,56 @@ void WalkTreeAsList(BinaryTreeNode *head) {
     node = node->right;
   }
   std::cout << std::endl;
+}
+
+bool ReadStream(std::istringstream &stream, int *number) {
+  if(stream.eof())
+    return false;
+
+  char buffer[32];
+  buffer[0] = '\0';
+
+  char ch;
+  stream >> ch;
+  int i = 0;
+  while(!stream.eof() && ch != ',')
+  {
+    buffer[i++] = ch;
+    stream >> ch;
+  }
+
+  bool isNumeric = false;
+  if(i > 0 && buffer[0] != '$')
+  {
+    *number = atoi(buffer);
+    isNumeric = true;
+  }
+
+  return isNumeric;
+}
+
+void SerializeTree(BinaryTreeNode *root, std::ostringstream &os) {
+  if (root == nullptr) {
+    os << "$,";
+    return;
+  } else {
+    os << root->value << ",";
+  }
+  SerializeTree(root->left, os);
+  SerializeTree(root->right, os);
+}
+
+void DeserializeTree(BinaryTreeNode **root, std::istringstream &is) {
+  int number;
+  if (ReadStream(is, &number)) {
+    *root = new BinaryTreeNode();
+    (*root)->value = number;
+    (*root)->left = nullptr;
+    (*root)->right = nullptr;
+
+    DeserializeTree(&((*root)->left), is);
+    DeserializeTree(&((*root)->right), is);
+  }
 }
 
 void TestBinaryTree() {
@@ -1086,4 +1137,120 @@ void TestTreeToList() {
 
   BinaryTreeNode *list5 = TreeToList(nullptr);
   WalkTreeAsList(list5);
+}
+
+void TestSerializeTree() {
+  std::ostringstream os;
+  std::istringstream is;
+
+//            8
+//        6      10
+//       5 7    9  11
+  BinaryTreeNode *tree1 = nullptr;
+  BinarySearchTreeInsert(&tree1, 8);
+  BinarySearchTreeInsert(&tree1, 6);
+  BinarySearchTreeInsert(&tree1, 10);
+  BinarySearchTreeInsert(&tree1, 5);
+  BinarySearchTreeInsert(&tree1, 7);
+  BinarySearchTreeInsert(&tree1, 9);
+  BinarySearchTreeInsert(&tree1, 11);
+  SerializeTree(tree1, os);
+  std::cout << os.str() << std::endl;
+  is.str(os.str());
+  BinaryTreeNode *new_tree1 = nullptr;
+  DeserializeTree(&new_tree1, is);
+  PreorderBinaryTreeWalk(new_tree1);
+  std::cout << std::endl;
+
+//            5
+//          4
+//        3
+//      2
+  BinaryTreeNode *node21 = new BinaryTreeNode(5);
+  BinaryTreeNode *node22 = new BinaryTreeNode(4);
+  BinaryTreeNode *node23 = new BinaryTreeNode(3);
+  BinaryTreeNode *node24 = new BinaryTreeNode(2);
+  node21->left = node22;
+  node22->left = node23;
+  node23->left = node24;
+  os.str("");
+  SerializeTree(node21, os);
+  std::cout << os.str() << std::endl;
+  is.str(os.str());
+  BinaryTreeNode *new_node21 = nullptr;
+  DeserializeTree(&new_node21, is);
+  PreorderBinaryTreeWalk(new_node21);
+  std::cout << std::endl;
+
+//        5
+//         4
+//          3
+//           2
+  BinaryTreeNode *node31 = new BinaryTreeNode(5);
+  BinaryTreeNode *node32 = new BinaryTreeNode(4);
+  BinaryTreeNode *node33 = new BinaryTreeNode(3);
+  BinaryTreeNode *node34 = new BinaryTreeNode(2);
+  node31->right = node32;
+  node32->right = node33;
+  node33->right = node34;
+  os.str("");
+  SerializeTree(node31, os);
+  std::cout << os.str() << std::endl;
+  is.str(os.str());
+  BinaryTreeNode *new_node31 = nullptr;
+  DeserializeTree(&new_node31, is);
+  PreorderBinaryTreeWalk(new_node31);
+  std::cout << std::endl;
+
+  BinaryTreeNode *node41 = new BinaryTreeNode(5);
+  os.str("");
+  SerializeTree(node41, os);
+  std::cout << os.str() << std::endl;
+  is.str(os.str());
+  BinaryTreeNode *new_node41 = nullptr;
+  DeserializeTree(&new_node41, is);
+  PreorderBinaryTreeWalk(new_node41);
+  std::cout << std::endl;
+
+  os.str("");
+  SerializeTree(nullptr, os);
+  std::cout << os.str() << std::endl;
+  is.str(os.str());
+  BinaryTreeNode *new_node51 = nullptr;
+  DeserializeTree(&new_node51, is);
+  PreorderBinaryTreeWalk(new_node51);
+  std::cout << std::endl;
+
+//        5
+//         5
+//          5
+//         5
+//        5
+//       5 5
+//      5   5
+  BinaryTreeNode *node61 = new BinaryTreeNode(5);
+  BinaryTreeNode *node62 = new BinaryTreeNode(5);
+  BinaryTreeNode *node63 = new BinaryTreeNode(5);
+  BinaryTreeNode *node64 = new BinaryTreeNode(5);
+  BinaryTreeNode *node65 = new BinaryTreeNode(5);
+  BinaryTreeNode *node66 = new BinaryTreeNode(5);
+  BinaryTreeNode *node67 = new BinaryTreeNode(5);
+  BinaryTreeNode *node68 = new BinaryTreeNode(5);
+  BinaryTreeNode *node69 = new BinaryTreeNode(5);
+  node61->right = node62;
+  node62->right = node63;
+  node63->left = node64;
+  node64->left = node65;
+  node65->left = node66;
+  node65->right = node67;
+  node66->left = node68;
+  node67->right = node69;
+  os.str("");
+  SerializeTree(node61, os);
+  std::cout << os.str() << std::endl;
+  is.str(os.str());
+  BinaryTreeNode *new_node61 = nullptr;
+  DeserializeTree(&new_node61, is);
+  PreorderBinaryTreeWalk(new_node61);
+  std::cout << std::endl;
 }

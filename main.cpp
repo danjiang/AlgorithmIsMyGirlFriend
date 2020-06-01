@@ -30,7 +30,8 @@ int main() {
 //  TestTopToBottomBinaryTreeWalk();
 //  TestIsPostorderSequenceOfBST();
 //  TestFindPath();
-  TestTreeToList();
+//  TestTreeToList();
+  TestSerializeTree();
 
 //  TestBubbleSort();
 //  TestInsertionSort();
