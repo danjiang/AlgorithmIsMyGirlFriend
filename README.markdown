@@ -26,6 +26,10 @@
 
 掌握前序遍历、中序遍历、后序遍历，命名的方式是操作子树根节点相对于遍历其左右子树的顺序。
 
+- [前序遍历](data_structure_tree.cpp#L62)
+- [中序遍历](data_structure_tree.cpp#L54)
+- [后序遍历](data_structure_tree.cpp#L70)
+
 二叉搜索树 Binary Search Tree (BST)，
 左子节点总是小于或等于根节点，
 而右子节点总是大于或等于根节点，
@@ -35,27 +39,32 @@
 第一部分是左子树节点的值，如果是 BST，它们都比根节点的值小，
 第一部分是右子树节点的值，如果是 BST，它们都比根节点的值大。
 
+- [输入二叉树的前序遍历和中序遍历的结果，结果中不含重复数字，重建此二叉树](data_structure_tree.cpp#L142)
+- [输入两棵二叉树 A 和 B，判断 B 是不是 A 的子结构](data_structure_tree.cpp#L165)
+- [二叉树的镜像](data_structure_tree.cpp#L183)
+- [序列化和反序列化二叉树](data_structure_tree.cpp#L507)
+
 中序遍历结果的特点：根节点的值在中间，剩下的数字可以分为前后两部分，
 前面部分是左子树节点的值，如果是 BST，它们都比根节点的值小，
 后面部分是右子树节点的值，如果是 BST，它们都比根节点的值大。
+
+- [查找二叉搜索树的第 k 大节点](data_structure_tree.cpp#L93)
+- [输入一个棵二叉搜索树，将其转换成一个排序的双向链表，不能创建任何新的节点，只能调整树中节点指针的指向](data_structure_tree.cpp#L454)
 
 后序遍历结果的特点：最后一个数字是数的根节点的值，前面的数字可以分为两部分，
 第一部分是左子树节点的值，如果是 BST，它们都比根节点的值小，
 第一部分是右子树节点的值，如果是 BST，它们都比根节点的值大。
 
+- [输入一个整数数组，判断该数组是不是某二叉搜索树的后序遍历结果](data_structure_tree.cpp#L363j)
+- [二叉树的深度，最长路径的长度为树的深度](data_structure_tree.cpp#L531)
+- [平衡二叉树，任意节点的左、右子树的深度相差不超过 1](data_structure_tree.cpp#L559)
+
 利用队列或栈作为树的辅助。
 
-- [查找二叉搜索树的第 k 大节点](data_structure_tree.cpp#L93)
-- [输入二叉树的前序遍历和中序遍历的结果，结果中不含重复数字，重建此二叉树](data_structure_tree.cpp#L142)
-- [输入两棵二叉树 A 和 B，判断 B 是不是 A 的子结构](data_structure_tree.cpp#L165)
-- [二叉树的镜像](data_structure_tree.cpp#L183)
 - [从上到下打印二叉树](data_structure_tree.cpp#L203)
 - [分行从上到下打印二叉树](data_structure_tree.cpp#L227)
 - [之字形从上到下打印二叉树](data_structure_tree.cpp#L263)
-- [输入一个整数数组，判断该数组是不是某二叉搜索树的后序遍历结果](data_structure_tree.cpp#L363j)
-- [输入一颗二叉树和一个整数，打印出二叉树中节点值的和为输入整数的所有路径（从树的根节点开始往下一直到叶节点所经过的节点形成一条路径）](data_structure_tree.cpp#L421)
-- [输入一个棵二叉搜索树，将其转换成一个排序的双向链表，不能创建任何新的节点，只能调整树中节点指针的指向](data_structure_tree.cpp#L454)
-- [序列化和反序列化二叉树](data_structure_tree.cpp#L507)
+- [输入一颗二叉树和一个整数，打印出二叉树中节点值的和为输入整数的所有路径，从树的根节点开始往下一直到叶节点所经过的节点形成一条路径](data_structure_tree.cpp#L421)
 
 ## 数据操作
 

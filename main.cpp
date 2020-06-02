@@ -31,7 +31,9 @@ int main() {
 //  TestIsPostorderSequenceOfBST();
 //  TestFindPath();
 //  TestTreeToList();
-  TestSerializeTree();
+//  TestSerializeTree();
+//  TestTreeDepth();
+  TestTreeIsBalance();
 
 //  TestBubbleSort();
 //  TestInsertionSort();

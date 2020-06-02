@@ -15,5 +15,7 @@ void TestIsPostorderSequenceOfBST();
 void TestFindPath();
 void TestTreeToList();
 void TestSerializeTree();
+void TestTreeDepth();
+void TestTreeIsBalance();
 
 #endif //ALGORITHMISMYGIRLFRIEND__DATA_STRUCTURE_TREE_H_

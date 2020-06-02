@@ -528,6 +528,39 @@ void DeserializeTree(BinaryTreeNode **root, std::istringstream &is) {
   }
 }
 
+int TreeDepth(BinaryTreeNode *root) {
+  if (root == nullptr) {
+    return 0;
+  }
+  int left = TreeDepth(root->left);
+  int right = TreeDepth(root->right);
+  return left > right ? left + 1 : right + 1;
+}
+
+bool TreeIsBalanceCore(BinaryTreeNode *root, int *depth) {
+  if (root == nullptr) {
+    *depth = 0;
+    return true;
+  }
+
+  int left, right;
+  if (TreeIsBalanceCore(root->left, &left)
+      && TreeIsBalanceCore(root->right, &right)) {
+    int diff = left - right;
+    if (diff <= 1 && diff >= -1) {
+      *depth = left > right ? left + 1 : right + 1;
+      return true;
+    }
+  }
+
+  return false;
+}
+
+bool TreeIsBalance(BinaryTreeNode *root) {
+  int depth = 0;
+  return TreeIsBalanceCore(root, &depth);
+}
+
 void TestBinaryTree() {
   BinaryTreeNode *tree = nullptr;
   BinarySearchTreeInsert(&tree, 10);
@@ -1253,4 +1286,182 @@ void TestSerializeTree() {
   DeserializeTree(&new_node61, is);
   PreorderBinaryTreeWalk(new_node61);
   std::cout << std::endl;
+}
+
+void TestTreeDepth() {
+//            1
+//         /      \
+//        2        3
+//       /\         \
+//      4  5         6
+//        /
+//       7
+  BinaryTreeNode *node11 = new BinaryTreeNode(1);
+  BinaryTreeNode *node12 = new BinaryTreeNode(2);
+  BinaryTreeNode *node13 = new BinaryTreeNode(3);
+  BinaryTreeNode *node14 = new BinaryTreeNode(4);
+  BinaryTreeNode *node15 = new BinaryTreeNode(5);
+  BinaryTreeNode *node16 = new BinaryTreeNode(6);
+  BinaryTreeNode *node17 = new BinaryTreeNode(7);
+  node11->left = node12;
+  node11->right = node13;
+  node12->left = node14;
+  node12->right = node15;
+  node13->right = node16;
+  node15->left = node17;
+  std::cout << TreeDepth(node11) << std::endl;
+
+//               1
+//              /
+//             2
+//            /
+//           3
+//          /
+//         4
+//        /
+//       5
+  BinaryTreeNode *node21 = new BinaryTreeNode(1);
+  BinaryTreeNode *node22 = new BinaryTreeNode(2);
+  BinaryTreeNode *node23 = new BinaryTreeNode(3);
+  BinaryTreeNode *node24 = new BinaryTreeNode(4);
+  BinaryTreeNode *node25 = new BinaryTreeNode(5);
+  node21->left = node22;
+  node22->left = node23;
+  node23->left = node24;
+  node24->left = node25;
+  std::cout << TreeDepth(node21) << std::endl;
+
+// 1
+//  \
+//   2
+//    \
+//     3
+//      \
+//       4
+//        \
+//         5
+  BinaryTreeNode *node31 = new BinaryTreeNode(1);
+  BinaryTreeNode *node32 = new BinaryTreeNode(2);
+  BinaryTreeNode *node33 = new BinaryTreeNode(3);
+  BinaryTreeNode *node34 = new BinaryTreeNode(4);
+  BinaryTreeNode *node35 = new BinaryTreeNode(5);
+  node31->right = node32;
+  node32->right = node33;
+  node33->right = node34;
+  node34->right = node35;
+  std::cout << TreeDepth(node31) << std::endl;
+
+  BinaryTreeNode *node41 = new BinaryTreeNode(1);
+  std::cout << TreeDepth(node41) << std::endl;
+
+  std::cout << TreeDepth(nullptr) << std::endl;
+}
+
+void TestTreeIsBalance() {
+//             1
+//         /      \
+//        2        3
+//       /\       / \
+//      4  5     6   7
+  BinaryTreeNode *node11 = new BinaryTreeNode(1);
+  BinaryTreeNode *node12 = new BinaryTreeNode(2);
+  BinaryTreeNode *node13 = new BinaryTreeNode(3);
+  BinaryTreeNode *node14 = new BinaryTreeNode(4);
+  BinaryTreeNode *node15 = new BinaryTreeNode(5);
+  BinaryTreeNode *node16 = new BinaryTreeNode(6);
+  BinaryTreeNode *node17 = new BinaryTreeNode(7);
+  node11->left = node12;
+  node11->right = node13;
+  node12->left = node14;
+  node12->right = node15;
+  node13->left = node16;
+  node13->right = node17;
+  std::cout << TreeIsBalance(node11) << std::endl;
+
+//             1
+//         /      \
+//        2        3
+//       /\         \
+//      4  5         6
+//        /
+//       7
+  BinaryTreeNode *node21 = new BinaryTreeNode(1);
+  BinaryTreeNode *node22 = new BinaryTreeNode(2);
+  BinaryTreeNode *node23 = new BinaryTreeNode(3);
+  BinaryTreeNode *node24 = new BinaryTreeNode(4);
+  BinaryTreeNode *node25 = new BinaryTreeNode(5);
+  BinaryTreeNode *node26 = new BinaryTreeNode(6);
+  BinaryTreeNode *node27 = new BinaryTreeNode(7);
+  node21->left = node22;
+  node21->right = node23;
+  node22->left = node24;
+  node22->right = node25;
+  node23->right = node26;
+  node25->left = node27;
+  std::cout << TreeIsBalance(node21) << std::endl;
+
+//             1
+//         /      \
+//        2        3
+//       /\
+//      4  5
+//        /
+//       6
+  BinaryTreeNode *node31 = new BinaryTreeNode(1);
+  BinaryTreeNode *node32 = new BinaryTreeNode(2);
+  BinaryTreeNode *node33 = new BinaryTreeNode(3);
+  BinaryTreeNode *node34 = new BinaryTreeNode(4);
+  BinaryTreeNode *node35 = new BinaryTreeNode(5);
+  BinaryTreeNode *node36 = new BinaryTreeNode(6);
+  node31->left = node32;
+  node31->right = node33;
+  node32->left = node34;
+  node32->right = node35;
+  node35->left = node36;
+  std::cout << TreeIsBalance(node31) << std::endl;
+
+//               1
+//              /
+//             2
+//            /
+//           3
+//          /
+//         4
+//        /
+//       5
+  BinaryTreeNode *node41 = new BinaryTreeNode(1);
+  BinaryTreeNode *node42 = new BinaryTreeNode(2);
+  BinaryTreeNode *node43 = new BinaryTreeNode(3);
+  BinaryTreeNode *node44 = new BinaryTreeNode(4);
+  BinaryTreeNode *node45 = new BinaryTreeNode(5);
+  node41->left = node42;
+  node42->left = node43;
+  node43->left = node44;
+  node44->left = node45;
+  std::cout << TreeIsBalance(node41) << std::endl;
+
+// 1
+//  \
+//   2
+//    \
+//     3
+//      \
+//       4
+//        \
+//         5
+  BinaryTreeNode *node51 = new BinaryTreeNode(1);
+  BinaryTreeNode *node52 = new BinaryTreeNode(2);
+  BinaryTreeNode *node53 = new BinaryTreeNode(3);
+  BinaryTreeNode *node54 = new BinaryTreeNode(4);
+  BinaryTreeNode *node55 = new BinaryTreeNode(5);
+  node51->right = node52;
+  node52->right = node53;
+  node53->right = node54;
+  node54->right = node55;
+  std::cout << TreeIsBalance(node51) << std::endl;
+
+  BinaryTreeNode *node61 = new BinaryTreeNode(1);
+  std::cout << TreeIsBalance(node61) << std::endl;
+
+  std::cout << TreeIsBalance(nullptr) << std::endl;
 }
