@@ -33,7 +33,8 @@ int main() {
 //  TestTreeToList();
 //  TestSerializeTree();
 //  TestTreeDepth();
-  TestTreeIsBalance();
+//  TestTreeIsBalance();
+  TestGetInorderWalkNext();
 
 //  TestBubbleSort();
 //  TestInsertionSort();

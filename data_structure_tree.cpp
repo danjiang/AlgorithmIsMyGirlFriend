@@ -15,6 +15,7 @@ struct BinaryTreeNode {
   int value;
   BinaryTreeNode *left = nullptr;
   BinaryTreeNode *right = nullptr;
+  BinaryTreeNode *parent = nullptr;
 
   BinaryTreeNode() {
   }
@@ -559,6 +560,31 @@ bool TreeIsBalanceCore(BinaryTreeNode *root, int *depth) {
 bool TreeIsBalance(BinaryTreeNode *root) {
   int depth = 0;
   return TreeIsBalanceCore(root, &depth);
+}
+
+BinaryTreeNode* GetInorderWalkNext(BinaryTreeNode *root) {
+  if (root == nullptr) {
+    return nullptr;
+  }
+
+  BinaryTreeNode *next = nullptr;
+  if (root->right != nullptr) {
+    BinaryTreeNode *right = root->right;
+    while (right->left != nullptr) {
+      right = right->left;
+    }
+    next = right;
+  } else if (root->parent != nullptr) {
+    BinaryTreeNode *current = root;
+    BinaryTreeNode *parent = root->parent;
+    while (parent != nullptr && current == parent->right) {
+      current = parent;
+      parent = parent->parent;
+    }
+    next = parent;
+  }
+
+  return next;
 }
 
 void TestBinaryTree() {
@@ -1464,4 +1490,77 @@ void TestTreeIsBalance() {
   std::cout << TreeIsBalance(node61) << std::endl;
 
   std::cout << TreeIsBalance(nullptr) << std::endl;
+}
+
+void ConnectTreeNodes(BinaryTreeNode *parent, BinaryTreeNode *left, BinaryTreeNode *right) {
+  if(parent != nullptr) {
+    parent->left = left;
+    parent->right = right;
+
+    if(left != nullptr)
+      left->parent = parent;
+    if(right != nullptr)
+      right->parent = parent;
+  }
+}
+
+void TestGetInorderWalkNext() {
+//            8
+//        6      10
+//       5 7    9  11
+  BinaryTreeNode *node11 = new BinaryTreeNode(8);
+  BinaryTreeNode *node12 = new BinaryTreeNode(6);
+  BinaryTreeNode *node13 = new BinaryTreeNode(10);
+  BinaryTreeNode *node14 = new BinaryTreeNode(5);
+  BinaryTreeNode *node15 = new BinaryTreeNode(7);
+  BinaryTreeNode *node16 = new BinaryTreeNode(9);
+  BinaryTreeNode *node17 = new BinaryTreeNode(11);
+  ConnectTreeNodes(node11, node12, node13);
+  ConnectTreeNodes(node12, node14, node15);
+  ConnectTreeNodes(node13, node16, node17);
+  std::cout << node11->value << " -> " << GetInorderWalkNext(node11)->value << std::endl;
+  std::cout << node12->value << " -> " << GetInorderWalkNext(node12)->value << std::endl;
+  std::cout << node13->value << " -> " << GetInorderWalkNext(node13)->value << std::endl;
+  std::cout << node14->value << " -> " << GetInorderWalkNext(node14)->value << std::endl;
+  std::cout << node15->value << " -> " << GetInorderWalkNext(node15)->value << std::endl;
+  std::cout << node16->value << " -> " << GetInorderWalkNext(node16)->value << std::endl;
+  std::cout << node17->value << " -> " << (GetInorderWalkNext(node17) == nullptr ? "null" : "error") << std::endl;
+  std::cout << std::endl;
+
+//            5
+//          4
+//        3
+//      2
+  BinaryTreeNode *node21 = new BinaryTreeNode(5);
+  BinaryTreeNode *node22 = new BinaryTreeNode(4);
+  BinaryTreeNode *node23 = new BinaryTreeNode(3);
+  BinaryTreeNode *node24 = new BinaryTreeNode(2);
+  ConnectTreeNodes(node21, node22, nullptr);
+  ConnectTreeNodes(node22, node23, nullptr);
+  ConnectTreeNodes(node23, node24, nullptr);
+  std::cout << node21->value << " -> " << (GetInorderWalkNext(node21) == nullptr ? "null" : "error") << std::endl;
+  std::cout << node22->value << " -> " << GetInorderWalkNext(node22)->value << std::endl;
+  std::cout << node23->value << " -> " << GetInorderWalkNext(node23)->value << std::endl;
+  std::cout << node24->value << " -> " << GetInorderWalkNext(node24)->value << std::endl;
+  std::cout << std::endl;
+
+//        2
+//         3
+//          4
+//           5
+  BinaryTreeNode *node31 = new BinaryTreeNode(2);
+  BinaryTreeNode *node32 = new BinaryTreeNode(3);
+  BinaryTreeNode *node33 = new BinaryTreeNode(4);
+  BinaryTreeNode *node34 = new BinaryTreeNode(5);
+  ConnectTreeNodes(node31, nullptr, node32);
+  ConnectTreeNodes(node32, nullptr, node33);
+  ConnectTreeNodes(node33, nullptr, node34);
+  std::cout << node31->value << " -> " << GetInorderWalkNext(node31)->value << std::endl;
+  std::cout << node32->value << " -> " << GetInorderWalkNext(node32)->value << std::endl;
+  std::cout << node33->value << " -> " << GetInorderWalkNext(node33)->value << std::endl;
+  std::cout << node34->value << " -> " << (GetInorderWalkNext(node34) == nullptr ? "null" : "error") << std::endl;
+  std::cout << std::endl;
+
+  BinaryTreeNode *node41 = new BinaryTreeNode(5);
+  std::cout << node41->value << " -> " << (GetInorderWalkNext(node41) == nullptr ? "null" : "error") << std::endl;
 }
