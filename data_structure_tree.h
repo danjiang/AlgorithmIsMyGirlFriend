@@ -18,5 +18,6 @@ void TestSerializeTree();
 void TestTreeDepth();
 void TestTreeIsBalance();
 void TestGetInorderWalkNext();
+void TestIsTreeSymmetrical();
 
 #endif //ALGORITHMISMYGIRLFRIEND__DATA_STRUCTURE_TREE_H_

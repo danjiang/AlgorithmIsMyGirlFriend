@@ -34,7 +34,8 @@ int main() {
 //  TestSerializeTree();
 //  TestTreeDepth();
 //  TestTreeIsBalance();
-  TestGetInorderWalkNext();
+//  TestGetInorderWalkNext();
+  TestIsTreeSymmetrical();
 
 //  TestBubbleSort();
 //  TestInsertionSort();

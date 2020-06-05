@@ -42,6 +42,7 @@
 - [输入二叉树的前序遍历和中序遍历的结果，结果中不含重复数字，重建此二叉树](data_structure_tree.cpp#L142)
 - [输入两棵二叉树 A 和 B，判断 B 是不是 A 的子结构](data_structure_tree.cpp#L165)
 - [二叉树的镜像](data_structure_tree.cpp#L183)
+- [对称的二叉树](data_structure_tree.cpp#L604)
 - [序列化和反序列化二叉树](data_structure_tree.cpp#L507)
 
 中序遍历结果的特点：根节点的值在中间，剩下的数字可以分为前后两部分，

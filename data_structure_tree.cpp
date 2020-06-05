@@ -587,6 +587,24 @@ BinaryTreeNode* GetInorderWalkNext(BinaryTreeNode *root) {
   return next;
 }
 
+bool IsTreeSymmetricalCore(BinaryTreeNode *root1, BinaryTreeNode *root2) {
+  if (root1 == nullptr && root2 == nullptr) {
+    return true;
+  }
+  if (root1 == nullptr || root2 == nullptr) {
+    return false;
+  }
+  if (root1->value != root2->value) {
+    return false;
+  }
+  return IsTreeSymmetricalCore(root1->left, root2->right)
+    && IsTreeSymmetricalCore(root1->right, root2->left);
+}
+
+bool IsTreeSymmetrical(BinaryTreeNode *root) {
+  return IsTreeSymmetricalCore(root, root);
+}
+
 void TestBinaryTree() {
   BinaryTreeNode *tree = nullptr;
   BinarySearchTreeInsert(&tree, 10);
@@ -1563,4 +1581,176 @@ void TestGetInorderWalkNext() {
 
   BinaryTreeNode *node41 = new BinaryTreeNode(5);
   std::cout << node41->value << " -> " << (GetInorderWalkNext(node41) == nullptr ? "null" : "error") << std::endl;
+}
+
+void TestIsTreeSymmetrical() {
+//            8
+//        6      6
+//       5 7    7 5
+  BinaryTreeNode *node11 = new BinaryTreeNode(8);
+  BinaryTreeNode *node12 = new BinaryTreeNode(6);
+  BinaryTreeNode *node13 = new BinaryTreeNode(6);
+  BinaryTreeNode *node14 = new BinaryTreeNode(5);
+  BinaryTreeNode *node15 = new BinaryTreeNode(7);
+  BinaryTreeNode *node16 = new BinaryTreeNode(7);
+  BinaryTreeNode *node17 = new BinaryTreeNode(5);
+  ConnectTreeNodes(node11, node12, node13);
+  ConnectTreeNodes(node12, node14, node15);
+  ConnectTreeNodes(node13, node16, node17);
+  std::cout << IsTreeSymmetrical(node11) << std::endl;
+
+//            8
+//        6      9
+//       5 7    7 5
+  BinaryTreeNode *node21 = new BinaryTreeNode(8);
+  BinaryTreeNode *node22 = new BinaryTreeNode(6);
+  BinaryTreeNode *node23 = new BinaryTreeNode(9);
+  BinaryTreeNode *node24 = new BinaryTreeNode(5);
+  BinaryTreeNode *node25 = new BinaryTreeNode(7);
+  BinaryTreeNode *node26 = new BinaryTreeNode(7);
+  BinaryTreeNode *node27 = new BinaryTreeNode(5);
+  ConnectTreeNodes(node21, node22, node23);
+  ConnectTreeNodes(node22, node24, node25);
+  ConnectTreeNodes(node23, node26, node27);
+  std::cout << IsTreeSymmetrical(node21) << std::endl;
+
+//            8
+//        6      6
+//       5 7    7
+  BinaryTreeNode *node31 = new BinaryTreeNode(8);
+  BinaryTreeNode *node32 = new BinaryTreeNode(6);
+  BinaryTreeNode *node33 = new BinaryTreeNode(6);
+  BinaryTreeNode *node34 = new BinaryTreeNode(5);
+  BinaryTreeNode *node35 = new BinaryTreeNode(7);
+  BinaryTreeNode *node36 = new BinaryTreeNode(7);
+  ConnectTreeNodes(node31, node32, node33);
+  ConnectTreeNodes(node32, node34, node35);
+  ConnectTreeNodes(node33, node36, nullptr);
+  std::cout << IsTreeSymmetrical(node31) << std::endl;
+
+//               5
+//              / \
+//             3   3
+//            /     \
+//           4       4
+//          /         \
+//         2           2
+//        /             \
+//       1               1
+  BinaryTreeNode *node41 = new BinaryTreeNode(5);
+  BinaryTreeNode *node42 = new BinaryTreeNode(3);
+  BinaryTreeNode *node43 = new BinaryTreeNode(3);
+  BinaryTreeNode *node44 = new BinaryTreeNode(4);
+  BinaryTreeNode *node45 = new BinaryTreeNode(4);
+  BinaryTreeNode *node46 = new BinaryTreeNode(2);
+  BinaryTreeNode *node47 = new BinaryTreeNode(2);
+  BinaryTreeNode *node48 = new BinaryTreeNode(1);
+  BinaryTreeNode *node49 = new BinaryTreeNode(1);
+  ConnectTreeNodes(node41, node42, node43);
+  ConnectTreeNodes(node42, node44, nullptr);
+  ConnectTreeNodes(node43, nullptr, node45);
+  ConnectTreeNodes(node44, node46, nullptr);
+  ConnectTreeNodes(node45, nullptr, node47);
+  ConnectTreeNodes(node46, node48, nullptr);
+  ConnectTreeNodes(node47, nullptr, node49);
+  std::cout << IsTreeSymmetrical(node41) << std::endl;
+
+//               5
+//              / \
+//             3   3
+//            /     \
+//           4       4
+//          /         \
+//         6           2
+//        /             \
+//       1               1
+  BinaryTreeNode *node51 = new BinaryTreeNode(5);
+  BinaryTreeNode *node52 = new BinaryTreeNode(3);
+  BinaryTreeNode *node53 = new BinaryTreeNode(3);
+  BinaryTreeNode *node54 = new BinaryTreeNode(4);
+  BinaryTreeNode *node55 = new BinaryTreeNode(4);
+  BinaryTreeNode *node56 = new BinaryTreeNode(6);
+  BinaryTreeNode *node57 = new BinaryTreeNode(2);
+  BinaryTreeNode *node58 = new BinaryTreeNode(1);
+  BinaryTreeNode *node59 = new BinaryTreeNode(1);
+  ConnectTreeNodes(node51, node52, node53);
+  ConnectTreeNodes(node52, node54, nullptr);
+  ConnectTreeNodes(node53, nullptr, node55);
+  ConnectTreeNodes(node54, node56, nullptr);
+  ConnectTreeNodes(node55, nullptr, node57);
+  ConnectTreeNodes(node56, node58, nullptr);
+  ConnectTreeNodes(node57, nullptr, node59);
+  std::cout << IsTreeSymmetrical(node51) << std::endl;
+
+//               5
+//              / \
+//             3   3
+//            /     \
+//           4       4
+//          /         \
+//         2           2
+//                      \
+//                       1
+  BinaryTreeNode *node61 = new BinaryTreeNode(5);
+  BinaryTreeNode *node62 = new BinaryTreeNode(3);
+  BinaryTreeNode *node63 = new BinaryTreeNode(3);
+  BinaryTreeNode *node64 = new BinaryTreeNode(4);
+  BinaryTreeNode *node65 = new BinaryTreeNode(4);
+  BinaryTreeNode *node66 = new BinaryTreeNode(2);
+  BinaryTreeNode *node67 = new BinaryTreeNode(2);
+  BinaryTreeNode *node68 = new BinaryTreeNode(1);
+  ConnectTreeNodes(node61, node62, node63);
+  ConnectTreeNodes(node62, node64, nullptr);
+  ConnectTreeNodes(node63, nullptr, node65);
+  ConnectTreeNodes(node64, node66, nullptr);
+  ConnectTreeNodes(node65, nullptr, node67);
+  ConnectTreeNodes(node67, nullptr, node68);
+  std::cout << IsTreeSymmetrical(node61) << std::endl;
+
+  BinaryTreeNode *node71 = new BinaryTreeNode(1);
+  std::cout << IsTreeSymmetrical(node71) << std::endl;
+
+  std::cout << IsTreeSymmetrical(nullptr) << std::endl;
+
+//               5
+//              / \
+//             5   5
+//            /     \
+//           5       5
+//          /         \
+//         5           5
+  BinaryTreeNode *node81 = new BinaryTreeNode(5);
+  BinaryTreeNode *node82 = new BinaryTreeNode(5);
+  BinaryTreeNode *node83 = new BinaryTreeNode(5);
+  BinaryTreeNode *node84 = new BinaryTreeNode(5);
+  BinaryTreeNode *node85 = new BinaryTreeNode(5);
+  BinaryTreeNode *node86 = new BinaryTreeNode(5);
+  BinaryTreeNode *node87 = new BinaryTreeNode(5);
+  ConnectTreeNodes(node81, node82, node83);
+  ConnectTreeNodes(node82, node84, nullptr);
+  ConnectTreeNodes(node83, nullptr, node85);
+  ConnectTreeNodes(node84, node86, nullptr);
+  ConnectTreeNodes(node85, nullptr, node87);
+  std::cout << IsTreeSymmetrical(node81) << std::endl;
+
+//               5
+//              / \
+//             5   5
+//            /     \
+//           5       5
+//          /       /
+//         5       5
+  BinaryTreeNode *node91 = new BinaryTreeNode(5);
+  BinaryTreeNode *node92 = new BinaryTreeNode(5);
+  BinaryTreeNode *node93 = new BinaryTreeNode(5);
+  BinaryTreeNode *node94 = new BinaryTreeNode(5);
+  BinaryTreeNode *node95 = new BinaryTreeNode(5);
+  BinaryTreeNode *node96 = new BinaryTreeNode(5);
+  BinaryTreeNode *node97 = new BinaryTreeNode(5);
+  ConnectTreeNodes(node91, node92, node93);
+  ConnectTreeNodes(node92, node94, nullptr);
+  ConnectTreeNodes(node93, nullptr, node95);
+  ConnectTreeNodes(node94, node96, nullptr);
+  ConnectTreeNodes(node95, node97, nullptr);
+  std::cout << IsTreeSymmetrical(node91) << std::endl;
 }
