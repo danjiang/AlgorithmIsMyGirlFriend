@@ -1,0 +1,12 @@
+//
+// Created by Dan Jiang on 2020/6/7.
+//
+
+#ifndef ALGORITHMISMYGIRLFRIEND_BINARYTREE_MIRROR_BINARY_TREE_H_
+#define ALGORITHMISMYGIRLFRIEND_BINARYTREE_MIRROR_BINARY_TREE_H_
+
+#include "binary_tree.h"
+
+void MirrorBinaryTree(BinaryTreeNode *root);
+
+#endif //ALGORITHMISMYGIRLFRIEND_BINARYTREE_MIRROR_BINARY_TREE_H_

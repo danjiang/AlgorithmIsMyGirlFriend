@@ -1,0 +1,12 @@
+//
+// Created by Dan Jiang on 2020/6/7.
+//
+
+#ifndef ALGORITHMISMYGIRLFRIEND_BINARYTREE_FIND_KTH_NODE_IN_BST_H_
+#define ALGORITHMISMYGIRLFRIEND_BINARYTREE_FIND_KTH_NODE_IN_BST_H_
+
+#include "binary_tree.h"
+
+BinaryTreeNode* FindKthNodeInBST(BinaryTreeNode *root, int k);
+
+#endif //ALGORITHMISMYGIRLFRIEND_BINARYTREE_FIND_KTH_NODE_IN_BST_H_
