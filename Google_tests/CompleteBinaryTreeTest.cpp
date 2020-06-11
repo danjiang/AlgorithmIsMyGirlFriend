@@ -9,6 +9,7 @@
 #include "construct_binary_tree_with_preorder_inorder_walk_result.h"
 #include "mirror_binary_tree.h"
 #include "binary_tree_contain_sub_tree.h"
+#include "serialize_binary_tree.h"
 
 class CompleteBinaryTreeFixture : public ::testing::Test {
 
@@ -122,4 +123,14 @@ TEST_F(CompleteBinaryTreeFixture, BinaryTreeContainSubTree) {
   EXPECT_FALSE(BinaryTreeContainSubTree(root, node1));
 
   EXPECT_FALSE(BinaryTreeContainSubTree(root, nullptr));
+}
+
+TEST_F(CompleteBinaryTreeFixture, SerializeBinaryTree) {
+  std::ostringstream os;
+  SerializeBinaryTree(root, os);
+  std::istringstream is;
+  is.str(os.str());
+  BinaryTreeNode *new_root;
+  DeserializeBinaryTree(&new_root, is);
+  EXPECT_TRUE(IsSameBinaryTree(root, new_root));
 }

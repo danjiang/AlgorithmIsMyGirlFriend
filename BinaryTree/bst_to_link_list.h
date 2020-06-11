@@ -1,0 +1,12 @@
+//
+// Created by Dan Jiang on 2020/6/11.
+//
+
+#ifndef ALGORITHMISMYGIRLFRIEND_BINARYTREE_BST_TO_LINK_LIST_H_
+#define ALGORITHMISMYGIRLFRIEND_BINARYTREE_BST_TO_LINK_LIST_H_
+
+#include "binary_tree.h"
+
+BinaryTreeNode* BST2LinkList(BinaryTreeNode *root);
+
+#endif //ALGORITHMISMYGIRLFRIEND_BINARYTREE_BST_TO_LINK_LIST_H_

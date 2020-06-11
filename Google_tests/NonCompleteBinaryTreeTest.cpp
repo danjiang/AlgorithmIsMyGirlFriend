@@ -9,6 +9,7 @@
 #include "construct_binary_tree_with_preorder_inorder_walk_result.h"
 #include "binary_tree_contain_sub_tree.h"
 #include "find_summary_path_in_binary_tree.h"
+#include "binary_tree_depth.h"
 
 class NonCompleteBinaryTreeFixture : public ::testing::Test {
 
@@ -119,4 +120,9 @@ TEST_F(NonCompleteBinaryTreeFixture, FindSummaryPathInBT) {
   os.str("");
   FindSummaryPathInBT(root, 10, os);
   EXPECT_EQ(os.str(),"");
+}
+
+TEST_F(NonCompleteBinaryTreeFixture, BinaryTreeDepth) {
+  int depth = BinaryTreeDepth(root);
+  EXPECT_EQ(depth, 4);
 }

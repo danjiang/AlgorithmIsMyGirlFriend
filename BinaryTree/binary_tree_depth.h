@@ -1,0 +1,12 @@
+//
+// Created by Dan Jiang on 2020/6/11.
+//
+
+#ifndef ALGORITHMISMYGIRLFRIEND_BINARYTREE_BINARY_TREE_DEPTH_H_
+#define ALGORITHMISMYGIRLFRIEND_BINARYTREE_BINARY_TREE_DEPTH_H_
+
+#include "binary_tree.h"
+
+int BinaryTreeDepth(BinaryTreeNode *root);
+
+#endif //ALGORITHMISMYGIRLFRIEND_BINARYTREE_BINARY_TREE_DEPTH_H_

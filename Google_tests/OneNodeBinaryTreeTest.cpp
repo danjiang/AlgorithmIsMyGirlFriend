@@ -11,6 +11,9 @@
 #include "mirror_binary_tree.h"
 #include "is_postorder_sequence_of_bst.h"
 #include "find_summary_path_in_binary_tree.h"
+#include "bst_to_link_list.h"
+#include "serialize_binary_tree.h"
+#include "binary_tree_depth.h"
 
 class OneNodeBinaryTreeFixture : public ::testing::Test {
 
@@ -82,4 +85,27 @@ TEST_F(OneNodeBinaryTreeFixture, FindSummaryPathInBT) {
   os.str("");
   FindSummaryPathInBT(root, 10, os);
   EXPECT_EQ(os.str(),"");
+}
+
+TEST_F(OneNodeBinaryTreeFixture, BST2LinkList) {
+  BinaryTreeNode *head = BST2LinkList(root);
+
+  std::ostringstream os;
+  BinaryTreeWalkAsLinkList(head, os);
+  EXPECT_EQ(os.str(),"5 ");
+}
+
+TEST_F(OneNodeBinaryTreeFixture, SerializeBinaryTree) {
+  std::ostringstream os;
+  SerializeBinaryTree(root, os);
+  std::istringstream is;
+  is.str(os.str());
+  BinaryTreeNode *new_root;
+  DeserializeBinaryTree(&new_root, is);
+  EXPECT_TRUE(IsSameBinaryTree(root, new_root));
+}
+
+TEST_F(OneNodeBinaryTreeFixture, BinaryTreeDepth) {
+  int depth = BinaryTreeDepth(root);
+  EXPECT_EQ(depth, 1);
 }

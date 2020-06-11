@@ -9,7 +9,10 @@ set(HEADER_FILES
         mirror_binary_tree.h
         binary_tree_contain_sub_tree.h
         is_postorder_sequence_of_bst.h
-        find_summary_path_in_binary_tree.h)
+        find_summary_path_in_binary_tree.h
+        bst_to_link_list.h
+        serialize_binary_tree.h
+        binary_tree_depth.h)
 
 set(SOURCE_FILES
         ../common.cpp
@@ -20,6 +23,9 @@ set(SOURCE_FILES
         mirror_binary_tree.cpp
         binary_tree_contain_sub_tree.cpp
         is_postorder_sequence_of_bst.cpp
-        find_summary_path_in_binary_tree.cpp)
+        find_summary_path_in_binary_tree.cpp
+        bst_to_link_list.cpp
+        serialize_binary_tree.cpp
+        binary_tree_depth.cpp)
 
 add_library(BinaryTree STATIC ${SOURCE_FILES} ${HEADER_FILES})

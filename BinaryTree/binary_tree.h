@@ -27,5 +27,6 @@ void InorderBinaryTreeWalk(BinaryTreeNode *root, std::ostringstream &os);
 void PreorderBinaryTreeWalk(BinaryTreeNode *root, std::ostringstream &os);
 void PostorderBinaryTreeWalk(BinaryTreeNode *root, std::ostringstream &os);
 bool IsSameBinaryTree(BinaryTreeNode *root1, BinaryTreeNode *root2);
+void BinaryTreeWalkAsLinkList(BinaryTreeNode *head, std::ostringstream &os);
 
 #endif //ALGORITHMISMYGIRLFRIEND_BINARYTREE_BINARY_TREE_NODE_H_

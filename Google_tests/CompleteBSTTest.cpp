@@ -7,6 +7,7 @@
 #include "binary_tree.h"
 #include "find_kth_node_in_bst.h"
 #include "is_postorder_sequence_of_bst.h"
+#include "bst_to_link_list.h"
 
 class CompleteBSTFixture : public ::testing::Test {
 
@@ -31,10 +32,13 @@ class CompleteBSTFixture : public ::testing::Test {
   }
 
   virtual void TearDown() {
-    DestroyBinaryTree(root);
+    if (need_destroy) {
+      DestroyBinaryTree(root);
+    }
   }
 
   BinaryTreeNode *root;
+  bool need_destroy = true;
 };
 
 TEST_F(CompleteBSTFixture, FindKthNodeInBST) {
@@ -50,4 +54,14 @@ TEST_F(CompleteBSTFixture, IsPostorderSequenceOfBST) {
   int sequence[] = { 4, 8, 6, 12, 16, 14, 10 };
   int length = sizeof(sequence) / sizeof(int);
   EXPECT_TRUE(IsPostorderSequenceOfBST(sequence, length));
+}
+
+TEST_F(CompleteBSTFixture, BST2LinkList) {
+  BinaryTreeNode *head = BST2LinkList(root);
+
+  std::ostringstream os;
+  BinaryTreeWalkAsLinkList(head, os);
+  EXPECT_EQ(os.str(),"4 6 8 10 12 14 16 ");
+
+  need_destroy = false;
 }

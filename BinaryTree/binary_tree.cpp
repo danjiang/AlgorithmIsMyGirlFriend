@@ -60,3 +60,11 @@ bool IsSameBinaryTree(BinaryTreeNode *root1, BinaryTreeNode *root2) {
       && IsSameBinaryTree(root1->left, root2->left)
       && IsSameBinaryTree(root1->right, root2->right);
 }
+
+void BinaryTreeWalkAsLinkList(BinaryTreeNode *head, std::ostringstream &os) {
+    BinaryTreeNode *node = head;
+    while (node != nullptr){
+      os << node->value << " ";
+      node = node->right;
+    }
+}
