@@ -58,7 +58,7 @@
 - [输入二叉树的前序遍历和中序遍历的结果，结果中不含重复数字，重建此二叉树](BinaryTree/construct_binary_tree_with_preorder_inorder_walk_result.cpp)
 - [输入两棵二叉树 A 和 B，判断 B 是不是 A 的子结构](BinaryTree/binary_tree_contain_sub_tree.cpp)
 - [二叉树的镜像](BinaryTree/mirror_binary_tree.cpp)
-- [对称的二叉树](data_structure_tree.cpp#L604)
+- [对称的二叉树](BinaryTree/binary_tree_is_symmetrical.cpp)
 - [序列化和反序列化二叉树](BinaryTree/serialize_binary_tree.cpp)
 
 ### 中序遍历结果的特点
@@ -67,7 +67,7 @@
 
 - [查找二叉搜索树的第 k 大节点](BinaryTree/find_kth_node_in_bst.cpp)
 - [输入一个棵二叉搜索树，将其转换成一个排序的双向链表，不能创建任何新的节点，只能调整树中节点指针的指向](BinaryTree/bst_to_link_list.cpp)
-- [找出二叉树中一个节点的中序遍历序列的下一个节点，树中的节点还有一个指向父节点的指针](data_structure_tree.cpp#L565)
+- [找出二叉树中一个节点的中序遍历序列的下一个节点，树中的节点还有一个指向父节点的指针](BinaryTree/get_binary_tree_inorder_walk_next.cpp)
 
 ### 后序遍历结果的特点
 
@@ -76,7 +76,7 @@
 
 - [输入一个整数数组，判断该数组是不是某二叉搜索树的后序遍历结果](BinaryTree/is_postorder_sequence_of_bst.cpp)
 - [二叉树的深度](BinaryTree/binary_tree_depth.cpp)
-- [平衡二叉树，任意节点的左、右子树的深度相差不超过 1](data_structure_tree.cpp#L559)
+- [平衡二叉树，任意节点的左、右子树的深度相差不超过 1](BinaryTree/binary_tree_is_balance.cpp)
 
 ### 利用队列或栈作为树的辅助
 

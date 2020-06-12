@@ -10,6 +10,7 @@
 #include "binary_tree_contain_sub_tree.h"
 #include "find_summary_path_in_binary_tree.h"
 #include "binary_tree_depth.h"
+#include "binary_tree_is_balance.h"
 
 class NonCompleteBinaryTreeFixture : public ::testing::Test {
 
@@ -125,4 +126,8 @@ TEST_F(NonCompleteBinaryTreeFixture, FindSummaryPathInBT) {
 TEST_F(NonCompleteBinaryTreeFixture, BinaryTreeDepth) {
   int depth = BinaryTreeDepth(root);
   EXPECT_EQ(depth, 4);
+}
+
+TEST_F(NonCompleteBinaryTreeFixture, BinaryTreeIsBalance) {
+  EXPECT_FALSE(BinaryTreeIsBalance(root));
 }

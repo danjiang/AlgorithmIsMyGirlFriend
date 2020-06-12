@@ -12,7 +12,10 @@ set(HEADER_FILES
         find_summary_path_in_binary_tree.h
         bst_to_link_list.h
         serialize_binary_tree.h
-        binary_tree_depth.h)
+        binary_tree_depth.h
+        binary_tree_is_balance.h
+        binary_tree_is_symmetrical.h
+        get_binary_tree_inorder_walk_next.h)
 
 set(SOURCE_FILES
         ../common.cpp
@@ -26,6 +29,9 @@ set(SOURCE_FILES
         find_summary_path_in_binary_tree.cpp
         bst_to_link_list.cpp
         serialize_binary_tree.cpp
-        binary_tree_depth.cpp)
+        binary_tree_depth.cpp
+        binary_tree_is_balance.cpp
+        binary_tree_is_symmetrical.cpp
+        get_binary_tree_inorder_walk_next.cpp)
 
 add_library(BinaryTree STATIC ${SOURCE_FILES} ${HEADER_FILES})

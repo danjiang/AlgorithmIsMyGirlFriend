@@ -10,6 +10,8 @@
 #include "mirror_binary_tree.h"
 #include "binary_tree_contain_sub_tree.h"
 #include "serialize_binary_tree.h"
+#include "binary_tree_is_balance.h"
+#include "get_binary_tree_inorder_walk_next.h"
 
 class CompleteBinaryTreeFixture : public ::testing::Test {
 
@@ -133,4 +135,24 @@ TEST_F(CompleteBinaryTreeFixture, SerializeBinaryTree) {
   BinaryTreeNode *new_root;
   DeserializeBinaryTree(&new_root, is);
   EXPECT_TRUE(IsSameBinaryTree(root, new_root));
+}
+
+TEST_F(CompleteBinaryTreeFixture, BinaryTreeIsBalance) {
+  EXPECT_TRUE(BinaryTreeIsBalance(root));
+}
+
+TEST_F(CompleteBinaryTreeFixture, GetBinaryTreeInorderWalkNext) {
+  auto node = root->left->left;
+  node = GetBinaryTreeInorderWalkNext(node);
+  EXPECT_EQ(node->value, 2);
+  node = GetBinaryTreeInorderWalkNext(node);
+  EXPECT_EQ(node->value, 5);
+  node = GetBinaryTreeInorderWalkNext(node);
+  EXPECT_EQ(node->value, 1);
+  node = GetBinaryTreeInorderWalkNext(node);
+  EXPECT_EQ(node->value, 6);
+  node = GetBinaryTreeInorderWalkNext(node);
+  EXPECT_EQ(node->value, 3);
+  node = GetBinaryTreeInorderWalkNext(node);
+  EXPECT_EQ(node->value, 7);
 }

@@ -7,6 +7,7 @@
 #include "construct_binary_tree_with_preorder_inorder_walk_result.h"
 #include "is_postorder_sequence_of_bst.h"
 #include "serialize_binary_tree.h"
+#include "binary_tree_is_balance.h"
 
 TEST(OtherBinaryTree, ConstructBinaryTree) {
   const int length = 7;
@@ -58,4 +59,28 @@ TEST(OtherBinaryTree, SerializeBinaryTree) {
   BinaryTreeNode *new_root;
   DeserializeBinaryTree(&new_root, is);
   EXPECT_TRUE(IsSameBinaryTree(root, new_root));
+}
+
+TEST(OtherBinaryTree, BinaryTreeIsBalance) {
+//             1
+//         /      \
+//        2        3
+//       /\         \
+//      4  5         6
+//        /
+//       7
+  auto *node1 = new BinaryTreeNode(1);
+  auto *node2 = new BinaryTreeNode(2);
+  auto *node3 = new BinaryTreeNode(3);
+  auto *node4 = new BinaryTreeNode(4);
+  auto *node5 = new BinaryTreeNode(5);
+  auto *node6 = new BinaryTreeNode(6);
+  auto *node7 = new BinaryTreeNode(7);
+  ConnectBinaryTreeNodes(node1, node2, node3);
+  ConnectBinaryTreeNodes(node2, node4, node5);
+  ConnectBinaryTreeNodes(node3, nullptr, node6);
+  ConnectBinaryTreeNodes(node5, node7, nullptr);
+  auto root = node1;
+
+  EXPECT_TRUE(BinaryTreeIsBalance(root));
 }

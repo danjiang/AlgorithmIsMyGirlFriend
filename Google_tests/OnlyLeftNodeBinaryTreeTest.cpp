@@ -12,6 +12,8 @@
 #include "find_summary_path_in_binary_tree.h"
 #include "serialize_binary_tree.h"
 #include "binary_tree_depth.h"
+#include "binary_tree_is_balance.h"
+#include "get_binary_tree_inorder_walk_next.h"
 
 class OnlyLeftNodeBinaryTreeFixture : public ::testing::Test {
 
@@ -126,4 +128,20 @@ TEST_F(OnlyLeftNodeBinaryTreeFixture, SerializeBinaryTree) {
 TEST_F(OnlyLeftNodeBinaryTreeFixture, BinaryTreeDepth) {
   int depth = BinaryTreeDepth(root);
   EXPECT_EQ(depth, 5);
+}
+
+TEST_F(OnlyLeftNodeBinaryTreeFixture, BinaryTreeIsBalance) {
+  EXPECT_FALSE(BinaryTreeIsBalance(root));
+}
+
+TEST_F(OnlyLeftNodeBinaryTreeFixture, GetBinaryTreeInorderWalkNext) {
+  auto node = root->left->left->left->left;
+  node = GetBinaryTreeInorderWalkNext(node);
+  EXPECT_EQ(node->value, 4);
+  node = GetBinaryTreeInorderWalkNext(node);
+  EXPECT_EQ(node->value, 3);
+  node = GetBinaryTreeInorderWalkNext(node);
+  EXPECT_EQ(node->value, 2);
+  node = GetBinaryTreeInorderWalkNext(node);
+  EXPECT_EQ(node->value, 5);
 }

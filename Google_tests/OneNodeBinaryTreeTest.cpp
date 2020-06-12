@@ -14,6 +14,9 @@
 #include "bst_to_link_list.h"
 #include "serialize_binary_tree.h"
 #include "binary_tree_depth.h"
+#include "binary_tree_is_balance.h"
+#include "binary_tree_is_symmetrical.h"
+#include "get_binary_tree_inorder_walk_next.h"
 
 class OneNodeBinaryTreeFixture : public ::testing::Test {
 
@@ -108,4 +111,18 @@ TEST_F(OneNodeBinaryTreeFixture, SerializeBinaryTree) {
 TEST_F(OneNodeBinaryTreeFixture, BinaryTreeDepth) {
   int depth = BinaryTreeDepth(root);
   EXPECT_EQ(depth, 1);
+}
+
+TEST_F(OneNodeBinaryTreeFixture, BinaryTreeIsBalance) {
+  EXPECT_TRUE(BinaryTreeIsBalance(root));
+}
+
+TEST_F(OneNodeBinaryTreeFixture, BinaryTreeIsSymmetrical) {
+  EXPECT_TRUE(BinaryTreeIsSymmetrical(root));
+}
+
+TEST_F(OneNodeBinaryTreeFixture, GetBinaryTreeInorderWalkNext) {
+  auto node = root;
+  node = GetBinaryTreeInorderWalkNext(node);
+  EXPECT_EQ(node, nullptr);
 }
