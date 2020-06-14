@@ -5,10 +5,17 @@ set(CMAKE_CXX_STANDARD 11)
 
 add_executable(AlgorithmIsMyGirlFriend main.cpp)
 
-include_directories(BinaryTree Tree)
+include_directories(
+        BinaryTree
+        Tree
+        LinkList)
 add_subdirectory(BinaryTree)
 add_subdirectory(Tree)
+add_subdirectory(LinkList)
 
-target_link_libraries(AlgorithmIsMyGirlFriend BinaryTree Tree)
+target_link_libraries(AlgorithmIsMyGirlFriend
+        BinaryTree
+        Tree
+        LinkList)
 
 add_subdirectory(Google_tests)

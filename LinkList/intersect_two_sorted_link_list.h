@@ -1,0 +1,12 @@
+//
+// Created by Dan Jiang on 2020/6/14.
+//
+
+#ifndef ALGORITHMISMYGIRLFRIEND_LINKLIST_INTERSECT_TWO_SORTED_LINK_LIST_H_
+#define ALGORITHMISMYGIRLFRIEND_LINKLIST_INTERSECT_TWO_SORTED_LINK_LIST_H_
+
+#include "link_list.h"
+
+ListNode* IntersectTwoSortedLinkList(ListNode *first_head, ListNode *second_head);
+
+#endif //ALGORITHMISMYGIRLFRIEND_LINKLIST_INTERSECT_TWO_SORTED_LINK_LIST_H_

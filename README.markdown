@@ -1,17 +1,41 @@
-## 链表
-> 首先，考虑链表为空和只有一个节点的情况；<br>
-> 需要查询时，考虑多个不同位置的指针；<br>
-> 需要增删改时，考虑被操作的节点在头部、中间和尾部的情况；<br>
-- [从尾到头打印链表](data_structure_linklist.cpp#L71)
-- [在 O(1) 时间内删除链表节点](data_structure_linklist.cpp#L135)
-- [在一个排序的链表中删除重复节点](data_structure_linklist.cpp#L164)
-- [从链表中找出倒数第 k 个节点，如 1、2、3、4、5、6，倒数第 3 个节点是 4](data_structure_linklist.cpp#L195)
-- [从链表中找出中间的节点](data_structure_linklist.cpp#L96)
-- [从链表中找出环的入口节点](data_structure_linklist.cpp#L214)
-- [反转链表](data_structure_linklist.cpp#L254)
+## 🔗 链表
+
+### 定义
+
+数组需要一块连续的内存空间来存储，对内存的要求比较高，而链表恰恰相反，它并不需要一块连续的内存空间，它通过“指针”将一组零散的内存块串联起来使用。
+
+数组简单易用，在实现上使用的是连续的内存空间，可以借助 CPU 的缓存机制，预读数组中的数据，所以访问效率更高。而链表在内存中并不是连续存储，所以对 CPU 缓存不友好，没办法有效预读。
+
+除此之外，如果你的代码对内存的使用非常苛刻，那数组就更适合你。因为链表中的每个结点都需要消耗额外的存储空间去存储一份指向下一个结点的指针，所以内存消耗会翻倍。而且，对链表进行频繁的插入、删除操作，还会导致频繁的内存申请和释放，容易造成内存碎片，如果是 Java 语言，就有可能会导致频繁的 GC（Garbage Collection，垃圾回收）。
+
+### 测试用例
+
+- [链表包含多个结点](Google_tests/NormalLinkListTest.cpp)
+- [链表只包含两个结点](Google_tests/TwoNodesLinkListTest.cpp)
+- [链表只包含一个结点](Google_tests/OneNodeLinkListTest.cpp)
+- [链表为空](Google_tests/EmptyLinkListTest.cpp)
+
+### 基本的增删查
+
+- [某个指定结点前面插入一个结点：双向链表可以在 O(1) 时间复杂度搞定，而单向链表需要 O(n) 的时间复杂度。](LinkList/link_list_append_node.cpp)
+- [删除给定指针指向的结点：因为双向链表中的结点已经保存了前驱结点的指针，不需要像单链表那样遍历。所以，单链表删除操作需要 O(n) 的时间复杂度，而双向链表只需要在 O(1) 的时间复杂度内就搞定了。](LinkList/link_list_remove_node.cpp)
+- 需要一个个地查找，所以为 O(n)。
+
+### 增删时，考虑被操作的节点在头部、中间和尾部的情况
+
+- [两个有序（从小到大）单链表，构造一条新链表，包含同时出现在两个链表的节点](LinkList/intersect_two_sorted_link_list.cpp)
+- [给定的一个节点指针，在 O(1) 时间内，删除链表节点](LinkList/link_list_remove_node.cpp)
+- [在一个排序的链表中删除重复节点](LinkList/link_list_remove_node.cpp)
+- [反转链表](LinkList/reverse_link_list.cpp)
 - [合并两个排序的链表](data_structure_linklist.cpp#L272)
-- [两个有序（从小到大）单链表，构造一条新链表，包含同时出现在两个链表的节点](data_structure_linklist.cpp#L108)
-- [两个链表的第一个公共节点](data_structure_linklist.cpp#L299)
+
+### 查询时，考虑多个指向不同位置的指针：快慢指针，相隔一定距离的指针
+
+- [从尾到头打印链表](LinkList/print_link_list_reverse.cpp)
+- [从链表中找出中间的节点](LinkList/find_middle_node_of_link_list.cpp)
+- [从链表中找出倒数第 k 个节点，如 1、2、3、4、5、6，倒数第 3 个节点是 4，删除链表倒数第 n 个结点思路和这个相同](LinkList/find_kth_to_tail_of_link_list.cpp)
+- [从链表中找出环的入口节点（含链表中环的检测的步骤）](LinkList/entry_node_of_loop_link_list.cpp)
+- [两个链表的第一个公共节点](LinkList/find_first_common_node_of_link_list.cpp)
 
 ## 🌲 二叉树 Binary Tree
 
@@ -103,4 +127,7 @@
 - [翻转字符串，翻转单词，左旋转字符串](data_structure_string.cpp#L62)
 
 ## 时间效率
+
+用空间换时间的设计思想。当内存空间充足的时候，如果我们更加追求代码的执行速度，我们就可以选择空间复杂度相对较高、但时间复杂度相对很低的算法或者数据结构。相反，如果内存比较紧缺，比如代码跑在手机或者单片机上，这个时候，就要反过来用时间换空间的设计思路。
+
 - [整数数组中查找最长递增序列](time_efficiency.cpp#L13)
