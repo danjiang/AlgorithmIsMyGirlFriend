@@ -16,9 +16,10 @@ add_executable(Google_Tests_run
         OnlyRightNodeBinaryTreeTest.cpp
         OtherBinaryTreeTest.cpp
         NonCompleteBSTTest.cpp
-        BinaryTreeIsSymmetricalTest.cpp)
+        BinaryTreeIsSymmetricalTest.cpp
+        TreeTest.cpp)
 
 # linking Google_Tests_run with BinaryTree which will be tested
-target_link_libraries(Google_Tests_run BinaryTree)
+target_link_libraries(Google_Tests_run BinaryTree Tree)
 
 target_link_libraries(Google_Tests_run gtest gtest_main)
