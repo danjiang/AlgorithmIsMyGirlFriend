@@ -9,6 +9,7 @@
 
 struct ListNode {
   int value;
+  int count = 1;
   ListNode *next = nullptr;
 
   ListNode() {};

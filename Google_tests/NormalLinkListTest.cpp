@@ -14,6 +14,7 @@
 #include "find_kth_to_tail_of_link_list.h"
 #include "entry_node_of_loop_link_list.h"
 #include "reverse_link_list.h"
+#include "find_cache_of_link_list.h"
 
 class NormalLinkListFixture : public ::testing::Test {
 
@@ -140,4 +141,100 @@ TEST_F(NormalLinkListFixture, ReverseLinkList) {
   std::ostringstream os;
   PrintLinkList(reverse_head, os);
   EXPECT_EQ(os.str(),"5 4 3 2 1 ");
+}
+
+TEST_F(NormalLinkListFixture, FindNodeInFIFOCache) {
+  auto node = FindNodeInFIFOCache(1, &head, 6);
+  EXPECT_EQ(node->value,1);
+  std::ostringstream os;
+  PrintLinkList(head, os);
+  EXPECT_EQ(os.str(),"1 2 3 4 5 ");
+
+  node = FindNodeInFIFOCache(3, &head, 6);
+  EXPECT_EQ(node->value,3);
+  os.str("");
+  PrintLinkList(head, os);
+  EXPECT_EQ(os.str(),"1 2 3 4 5 ");
+
+  node = FindNodeInFIFOCache(5, &head, 6);
+  EXPECT_EQ(node->value,5);
+  os.str("");
+  PrintLinkList(head, os);
+  EXPECT_EQ(os.str(),"1 2 3 4 5 ");
+
+  node = FindNodeInFIFOCache(6, &head, 6);
+  EXPECT_EQ(node->value,6);
+  os.str("");
+  PrintLinkList(head, os);
+  EXPECT_EQ(os.str(),"1 2 3 4 5 6 ");
+
+  node = FindNodeInFIFOCache(7, &head, 6);
+  EXPECT_EQ(node->value,7);
+  os.str("");
+  PrintLinkList(head, os);
+  EXPECT_EQ(os.str(),"2 3 4 5 6 7 ");
+}
+
+TEST_F(NormalLinkListFixture, FindNodeInLFUCache) {
+  auto node = FindNodeInLFUCache(5, &head, 6);
+  EXPECT_EQ(node->value,5);
+  std::ostringstream os;
+  PrintLinkList(head, os);
+  EXPECT_EQ(os.str(),"5 1 2 3 4 ");
+
+  node = FindNodeInLFUCache(2, &head, 6);
+  EXPECT_EQ(node->value,2);
+  os.str("");
+  PrintLinkList(head, os);
+  EXPECT_EQ(os.str(),"5 2 1 3 4 ");
+
+  node = FindNodeInLFUCache(1, &head, 6);
+  EXPECT_EQ(node->value,1);
+  os.str("");
+  PrintLinkList(head, os);
+  EXPECT_EQ(os.str(),"5 2 1 3 4 ");
+
+  node = FindNodeInLFUCache(6, &head, 6);
+  EXPECT_EQ(node->value,6);
+  os.str("");
+  PrintLinkList(head, os);
+  EXPECT_EQ(os.str(),"5 2 1 3 4 6 ");
+
+  node = FindNodeInLFUCache(7, &head, 6);
+  EXPECT_EQ(node->value,7);
+  os.str("");
+  PrintLinkList(head, os);
+  EXPECT_EQ(os.str(),"5 2 1 3 4 7 ");
+}
+
+TEST_F(NormalLinkListFixture, FindNodeInLRUCache) {
+  auto node = FindNodeInLRUCache(1, &head, 6);
+  EXPECT_EQ(node->value,1);
+  std::ostringstream os;
+  PrintLinkList(head, os);
+  EXPECT_EQ(os.str(),"1 2 3 4 5 ");
+
+  node = FindNodeInLRUCache(3, &head, 6);
+  EXPECT_EQ(node->value,3);
+  os.str("");
+  PrintLinkList(head, os);
+  EXPECT_EQ(os.str(),"3 1 2 4 5 ");
+
+  node = FindNodeInLRUCache(5, &head, 6);
+  EXPECT_EQ(node->value,5);
+  os.str("");
+  PrintLinkList(head, os);
+  EXPECT_EQ(os.str(),"5 3 1 2 4 ");
+
+  node = FindNodeInLRUCache(6, &head, 6);
+  EXPECT_EQ(node->value,6);
+  os.str("");
+  PrintLinkList(head, os);
+  EXPECT_EQ(os.str(),"6 5 3 1 2 4 ");
+
+  node = FindNodeInLRUCache(7, &head, 6);
+  EXPECT_EQ(node->value,7);
+  os.str("");
+  PrintLinkList(head, os);
+  EXPECT_EQ(os.str(),"7 6 5 3 1 2 ");
 }

@@ -11,6 +11,7 @@
 #include "link_list_remove_node.h"
 #include "entry_node_of_loop_link_list.h"
 #include "reverse_link_list.h"
+#include "find_cache_of_link_list.h"
 
 class TwoNodesLinkListFixture : public ::testing::Test {
 
@@ -83,4 +84,88 @@ TEST_F(TwoNodesLinkListFixture, ReverseLinkList) {
   std::ostringstream os;
   PrintLinkList(reverse_head, os);
   EXPECT_EQ(os.str(),"2 1 ");
+}
+
+TEST_F(TwoNodesLinkListFixture, FindNodeInFIFOCache) {
+  auto node = FindNodeInFIFOCache(1, &head, 3);
+  EXPECT_EQ(node->value,1);
+  std::ostringstream os;
+  PrintLinkList(head, os);
+  EXPECT_EQ(os.str(),"1 2 ");
+
+  node = FindNodeInFIFOCache(2, &head, 3);
+  EXPECT_EQ(node->value,2);
+  os.str("");
+  PrintLinkList(head, os);
+  EXPECT_EQ(os.str(),"1 2 ");
+
+  node = FindNodeInFIFOCache(3, &head, 3);
+  EXPECT_EQ(node->value,3);
+  os.str("");
+  PrintLinkList(head, os);
+  EXPECT_EQ(os.str(),"1 2 3 ");
+
+  node = FindNodeInFIFOCache(4, &head, 3);
+  EXPECT_EQ(node->value,4);
+  os.str("");
+  PrintLinkList(head, os);
+  EXPECT_EQ(os.str(),"2 3 4 ");
+}
+
+TEST_F(TwoNodesLinkListFixture, FindNodeInLFUCache) {
+  auto node = FindNodeInLFUCache(2, &head, 3);
+  EXPECT_EQ(node->value, 2);
+  std::ostringstream os;
+  PrintLinkList(head, os);
+  EXPECT_EQ(os.str(),"2 1 ");
+
+  node = FindNodeInLFUCache(1, &head, 3);
+  EXPECT_EQ(node->value,1);
+  os.str("");
+  PrintLinkList(head, os);
+  EXPECT_EQ(os.str(),"2 1 ");
+
+  node = FindNodeInLFUCache(1, &head, 3);
+  EXPECT_EQ(node->value,1);
+  os.str("");
+  PrintLinkList(head, os);
+  EXPECT_EQ(os.str(),"1 2 ");
+
+  node = FindNodeInLFUCache(3, &head, 3);
+  EXPECT_EQ(node->value,3);
+  os.str("");
+  PrintLinkList(head, os);
+  EXPECT_EQ(os.str(),"1 2 3 ");
+
+  node = FindNodeInLFUCache(4, &head, 3);
+  EXPECT_EQ(node->value,4);
+  os.str("");
+  PrintLinkList(head, os);
+  EXPECT_EQ(os.str(),"1 2 4 ");
+}
+
+TEST_F(TwoNodesLinkListFixture, FindNodeInLRUCache) {
+  auto node = FindNodeInLRUCache(1, &head, 3);
+  EXPECT_EQ(node->value,1);
+  std::ostringstream os;
+  PrintLinkList(head, os);
+  EXPECT_EQ(os.str(),"1 2 ");
+
+  node = FindNodeInLRUCache(2, &head, 3);
+  EXPECT_EQ(node->value,2);
+  os.str("");
+  PrintLinkList(head, os);
+  EXPECT_EQ(os.str(),"2 1 ");
+
+  node = FindNodeInLRUCache(3, &head, 3);
+  EXPECT_EQ(node->value,3);
+  os.str("");
+  PrintLinkList(head, os);
+  EXPECT_EQ(os.str(),"3 2 1 ");
+
+  node = FindNodeInLRUCache(4, &head, 3);
+  EXPECT_EQ(node->value,4);
+  os.str("");
+  PrintLinkList(head, os);
+  EXPECT_EQ(os.str(),"4 3 2 ");
 }

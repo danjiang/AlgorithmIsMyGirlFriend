@@ -12,7 +12,8 @@ set(HEADER_FILES
         entry_node_of_loop_link_list.h
         reverse_link_list.h
         merge_link_list.h
-        find_first_common_node_of_link_list.h)
+        find_first_common_node_of_link_list.h
+        find_cache_of_link_list.h)
 
 set(SOURCE_FILES
         ../common.cpp
@@ -26,6 +27,7 @@ set(SOURCE_FILES
         entry_node_of_loop_link_list.cpp
         reverse_link_list.cpp
         merge_link_list.cpp
-        find_first_common_node_of_link_list.cpp)
+        find_first_common_node_of_link_list.cpp
+        find_cache_of_link_list.cpp)
 
 add_library(LinkList STATIC ${SOURCE_FILES} ${HEADER_FILES})
