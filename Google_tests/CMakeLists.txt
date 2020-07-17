@@ -24,7 +24,8 @@ add_executable(Google_Tests_run
         EmptyLinkListTest.cpp
         LinkListDeleteDuplicationTest.cpp
         MergeLinkListTest.cpp
-        FindFirstCommonNodeOfLinkListTest.cpp)
+        FindFirstCommonNodeOfLinkListTest.cpp
+        OtherLinkListTest.cpp)
 
 # linking Google_Tests_run with BinaryTree which will be tested
 target_link_libraries(Google_Tests_run

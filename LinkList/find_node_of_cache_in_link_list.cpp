@@ -2,7 +2,7 @@
 // Created by Dan Jiang on 2020/7/16.
 //
 
-#include "find_cache_of_link_list.h"
+#include "find_node_of_cache_in_link_list.h"
 
 ListNode* FindNodeInFIFOCache(int value, ListNode **head, int max_size) {
   if (head == nullptr || max_size <= 0) {

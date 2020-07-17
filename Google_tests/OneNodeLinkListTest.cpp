@@ -11,7 +11,7 @@
 #include "link_list_remove_node.h"
 #include "entry_node_of_loop_link_list.h"
 #include "reverse_link_list.h"
-#include "find_cache_of_link_list.h"
+#include "find_node_of_cache_in_link_list.h"
 
 class OneNodeLinkListFixture : public ::testing::Test {
 

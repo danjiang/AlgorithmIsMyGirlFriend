@@ -13,7 +13,8 @@ set(HEADER_FILES
         reverse_link_list.h
         merge_link_list.h
         find_first_common_node_of_link_list.h
-        find_cache_of_link_list.h)
+        find_node_of_cache_in_link_list.h
+        check_palindromic_string_in_link_list.h)
 
 set(SOURCE_FILES
         ../common.cpp
@@ -28,6 +29,7 @@ set(SOURCE_FILES
         reverse_link_list.cpp
         merge_link_list.cpp
         find_first_common_node_of_link_list.cpp
-        find_cache_of_link_list.cpp)
+        find_node_of_cache_in_link_list.cpp
+        check_palindromic_string_in_link_list.cpp)
 
 add_library(LinkList STATIC ${SOURCE_FILES} ${HEADER_FILES})

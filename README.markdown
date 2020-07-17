@@ -103,12 +103,13 @@
 - [从链表中找出倒数第 k 个节点，如 1、2、3、4、5、6，倒数第 3 个节点是 4，删除链表倒数第 n 个结点思路和这个相同](LinkList/find_kth_to_tail_of_link_list.cpp)
 - [从链表中找出环的入口节点（含链表中环的检测的步骤）](LinkList/entry_node_of_loop_link_list.cpp)
 - [两个链表的第一个公共节点](LinkList/find_first_common_node_of_link_list.cpp)
+- [单向链表存储的字符串，判断其是否是回文字符串](LinkList/check_palindromic_string_in_link_list.cpp)
 
 ### 链表来实现缓存淘汰策略
 
-- [先进先出策略 FIFO（First In，First Out）](LinkList/find_cache_of_link_list.cpp)：链表实现的队列；访问数据时，已经缓存的数据，直接返回；没有缓存的数据，缓存未满，新数据直接添加到链表的尾部；缓存已经满，则删除链表头节点，新数据再添加到链表的尾部。
-- [最少使用策略 LFU（Least Frequently Used）](LinkList/find_cache_of_link_list.cpp)：链表按访问次数排序；访问数据时，已经缓存的数据，次数加一，再排序；没有缓存的数据，缓存未满，新数据直接添加到链表的尾部；缓存已经满，则删除链表尾节点，新数据再添加到链表的尾部。
-- [最近最少使用策略 LRU（Least Recently Used）](LinkList/find_cache_of_link_list.cpp)：链表按最近访问时间排序；访问数据时，已经缓存的数据，移动到链表头部；没有缓存的数据，缓存未满，新数据直接插入到链表的头部；缓存已经满，则删除链表尾节点，新数据再插入到链表的头部。
+- [先进先出策略 FIFO（First In，First Out）](LinkList/find_node_of_cache_in_link_list.cpp)：链表实现的队列；访问数据时，已经缓存的数据，直接返回；没有缓存的数据，缓存未满，新数据直接添加到链表的尾部；缓存已经满，则删除链表头节点，新数据再添加到链表的尾部。
+- [最少使用策略 LFU（Least Frequently Used）](LinkList/find_node_of_cache_in_link_list.cpp)：链表按访问次数排序；访问数据时，已经缓存的数据，次数加一，再排序；没有缓存的数据，缓存未满，新数据直接添加到链表的尾部；缓存已经满，则删除链表尾节点，新数据再添加到链表的尾部。
+- [最近最少使用策略 LRU（Least Recently Used）](LinkList/find_node_of_cache_in_link_list.cpp)：链表按最近访问时间排序；访问数据时，已经缓存的数据，移动到链表头部；没有缓存的数据，缓存未满，新数据直接插入到链表的头部；缓存已经满，则删除链表尾节点，新数据再插入到链表的头部。
 
 ## 🌲 二叉树 Binary Tree
 

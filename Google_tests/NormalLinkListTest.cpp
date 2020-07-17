@@ -14,7 +14,7 @@
 #include "find_kth_to_tail_of_link_list.h"
 #include "entry_node_of_loop_link_list.h"
 #include "reverse_link_list.h"
-#include "find_cache_of_link_list.h"
+#include "find_node_of_cache_in_link_list.h"
 
 class NormalLinkListFixture : public ::testing::Test {
 
