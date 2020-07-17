@@ -24,7 +24,7 @@
 
 ### 空间复杂度分析
 
-空间复杂度全称就是渐进空间复杂度（asymptotic space complexity），表示算法的存储空间与数据规模之间的增长关系。注意是额外的存储空间。
+空间复杂度全称就是渐进空间复杂度（asymptotic space complexity），表示算法的存储空间与数据规模之间的增长关系。注意说空间复杂度的时候，是指除了原本的数据存储空间外，算法运行还需要额外的存储空间。
 
 ### 最好情况时间复杂度
 
@@ -76,10 +76,10 @@
 
 ### 测试用例
 
-- [链表包含多个结点](Google_tests/NormalLinkListTest.cpp)
-- [链表只包含两个结点](Google_tests/TwoNodesLinkListTest.cpp)
-- [链表只包含一个结点](Google_tests/OneNodeLinkListTest.cpp)
-- [链表为空](Google_tests/EmptyLinkListTest.cpp)
+- [链表包含多个结点](Google_tests/LinkList/NormalLinkListTest.cpp)
+- [链表只包含两个结点](Google_tests/LinkList/TwoNodesLinkListTest.cpp)
+- [链表只包含一个结点](Google_tests/LinkList/OneNodeLinkListTest.cpp)
+- [链表为空](Google_tests/LinkList/EmptyLinkListTest.cpp)
 
 ### 基本的增删查
 
@@ -111,6 +111,39 @@
 - [最少使用策略 LFU（Least Frequently Used）](LinkList/find_node_of_cache_in_link_list.cpp)：链表按访问次数排序；访问数据时，已经缓存的数据，次数加一，再排序；没有缓存的数据，缓存未满，新数据直接添加到链表的尾部；缓存已经满，则删除链表尾节点，新数据再添加到链表的尾部。
 - [最近最少使用策略 LRU（Least Recently Used）](LinkList/find_node_of_cache_in_link_list.cpp)：链表按最近访问时间排序；访问数据时，已经缓存的数据，移动到链表头部；没有缓存的数据，缓存未满，新数据直接插入到链表的头部；缓存已经满，则删除链表尾节点，新数据再插入到链表的头部。
 
+## 🚦 栈和队列
+
+### 栈的定义
+
+当某个数据集合只涉及在一端插入和删除数据，并且满足后进先出、先进后出的特性，我们就应该首选“栈”这种数据结构。
+
+### 栈的应用
+
+- 栈在函数调用中的应用：操作系统给每个线程分配了一块独立的内存空间，这块内存被组织成“栈”这种结构, 用来存储函数调用时的临时变量。每进入一个函数，就会将临时变量作为一个栈帧入栈，当被调用函数执行完成，返回之后，将这个函数对应的栈帧出栈。
+- 栈在表达式求值中的应用：比如：34+13*9+44-12/3。对于这个四则运算，编译器就是通过两个栈来实现的。其中一个保存操作数的栈，另一个是保存运算符的栈。我们从左向右遍历表达式，当遇到数字，我们就直接压入操作数栈；当遇到运算符，就与运算符栈的栈顶元素进行比较。如果比运算符栈顶元素的优先级高，就将当前运算符压入栈；如果比运算符栈顶元素的优先级低或者相同，从运算符栈中取栈顶运算符，从操作数栈的栈顶取 2 个操作数，然后进行计算，再把计算完的结果压入操作数栈，继续比较。
+- 栈在括号匹配中的应用：{[] ()[{}]} 或 [{()}([])] 等都为合法格式，而 {[}()] 或 [({)] 为不合法的格式。用栈来保存未匹配的左括号，从左到右依次扫描字符串。当扫描到左括号时，则将其压入栈中；当扫描到右括号时，从栈顶取出一个左括号。如果能够匹配，则继续扫描剩下的字符串。如果扫描的过程中，遇到不能配对的右括号，或者栈中没有数据，则说明为非法格式。
+- 实现浏览器的前进、后退功能：使用两个栈，X 和 Y，我们把首次浏览的页面依次压入栈 X，当点击后退按钮时，再依次从栈 X 中出栈，并将出栈的数据依次放入栈 Y。当我们点击前进按钮时，我们依次从栈 Y 中取出数据，放入栈 X 中。当栈 X 中没有数据时，那就说明没有页面可以继续后退浏览了。当栈 Y 中没有数据，那就说明没有页面可以点击前进按钮浏览了。
+
+### 队列的定义
+
+入队 enqueue()，放一个数据到队列尾部；出队 dequeue()，从队列头部取一个元素。
+
+### 队列的应用
+
+- 阻塞队列其实就是在队列基础上增加了阻塞操作。简单来说，就是在队列为空的时候，从队头取数据会被阻塞。因为此时还没有数据可取，直到队列中有了数据才能返回；如果队列已经满了，那么插入数据的操作就会被阻塞，直到队列中有空闲位置后再插入数据，然后再返回。线程安全的队列我们叫作并发队列。最简单直接的实现方式是直接在 enqueue()、dequeue() 方法上加锁，但是锁粒度大并发度会比较低，同一时刻仅允许一个存或者取操作。
+- 实际上，对于大部分资源有限的场景，当没有空闲资源时，基本上都可以通过“队列”这种数据结构来实现请求排队。
+
+### 数据插入和删除的特性
+
+- [顺序栈：用数组实现的栈](StackAndQueue/stack.cpp) ，注意空和满的情况；支持动态扩容的顺序栈，入栈操作来说，最好情况时间复杂度是 O(1)，最坏情况时间复杂度是 O(n)，均摊时间复杂度是 O(1)
+- [链式栈：用链表实现的栈](StackAndQueue/stack.cpp) ，注意空的情况，最好用双向链表
+- [包含 min 函数的栈，输出栈中的最小值](StackAndQueue/stack.cpp) 
+- [输入两个整数序列，第一个序列表示栈的压入顺序，判断第二个序列是否为该栈的弹出顺序](StackAndQueue/is_pop_order_of_stack.cpp) 
+- [顺序队列：用数组实现的队列](StackAndQueue/queue.cpp)，注意空和满的情况，入队操作可能需要数据移动
+- [链式队列：用链表实现的队列](StackAndQueue/queue.cpp)，注意空的情况
+- [循环队列：用数组实现的循环队列](StackAndQueue/queue.cpp)，注意空和满的情况，空一个位置不存储数据
+- [两个栈实现队列](StackAndQueue/queue.cpp) 
+
 ## 🌲 二叉树 Binary Tree
 
 ### 定义
@@ -133,12 +166,12 @@
 
 ### 测试用例
 
-- [完全二叉树](Google_tests/CompleteBinaryTreeTest.cpp)，[完全二叉搜索树](Google_tests/CompleteBSTTest.cpp)
-- [非完全二叉树](Google_tests/NonCompleteBinaryTreeTest.cpp)，[非完全二叉搜索树](Google_tests/NonCompleteBSTTest.cpp)
-- [只有左节点的二叉树](Google_tests/OnlyLeftNodeBinaryTreeTest.cpp)，[只有左节点的二叉搜索树](Google_tests/OnlyLeftNodeBSTTest.cpp)
-- [只有右节点的二叉树](Google_tests/OnlyRightNodeBinaryTreeTest.cpp)，[只有右节点的二叉搜索树](Google_tests/OnlyRightNodeBSTTest.cpp)
-- [只有一个节点的二叉树](Google_tests/OneNodeBinaryTreeTest.cpp)
-- [空的二叉树](Google_tests/EmptyBinaryTreeTest.cpp)
+- [完全二叉树](Google_tests/BinaryTree/CompleteBinaryTreeTest.cpp)，[完全二叉搜索树](Google_tests/BinaryTree/CompleteBSTTest.cpp)
+- [非完全二叉树](Google_tests/BinaryTree/NonCompleteBinaryTreeTest.cpp)，[非完全二叉搜索树](Google_tests/BinaryTree/NonCompleteBSTTest.cpp)
+- [只有左节点的二叉树](Google_tests/BinaryTree/OnlyLeftNodeBinaryTreeTest.cpp)，[只有左节点的二叉搜索树](Google_tests/BinaryTree/OnlyLeftNodeBSTTest.cpp)
+- [只有右节点的二叉树](Google_tests/BinaryTree/OnlyRightNodeBinaryTreeTest.cpp)，[只有右节点的二叉搜索树](Google_tests/BinaryTree/OnlyRightNodeBSTTest.cpp)
+- [只有一个节点的二叉树](Google_tests/BinaryTree/OneNodeBinaryTreeTest.cpp)
+- [空的二叉树](Google_tests/BinaryTree/EmptyBinaryTreeTest.cpp)
 
 ### 三种基本遍历
 

@@ -8,14 +8,17 @@ add_executable(AlgorithmIsMyGirlFriend main.cpp)
 include_directories(
         BinaryTree
         Tree
-        LinkList)
+        LinkList
+        StackAndQueue)
 add_subdirectory(BinaryTree)
 add_subdirectory(Tree)
 add_subdirectory(LinkList)
+add_subdirectory(StackAndQueue)
 
 target_link_libraries(AlgorithmIsMyGirlFriend
         BinaryTree
         Tree
-        LinkList)
+        LinkList
+        StackAndQueue)
 
 add_subdirectory(Google_tests)
