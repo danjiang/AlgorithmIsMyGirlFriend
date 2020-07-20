@@ -7,9 +7,6 @@
 
 #include <stdexcept>
 
-void PrintArray(int array[], int size);
-void Swap(int *a, int *b);
-
 class invalid_input: public std::logic_error {
  public:
   explicit invalid_input(const std::string &s): std::logic_error(s) {}

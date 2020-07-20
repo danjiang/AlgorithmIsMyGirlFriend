@@ -9,16 +9,22 @@ include_directories(
         BinaryTree
         Tree
         LinkList
-        StackAndQueue)
+        StackAndQueue
+        RecursionAndLoop
+        SortAndFind)
 add_subdirectory(BinaryTree)
 add_subdirectory(Tree)
 add_subdirectory(LinkList)
 add_subdirectory(StackAndQueue)
+add_subdirectory(RecursionAndLoop)
+add_subdirectory(SortAndFind)
 
 target_link_libraries(AlgorithmIsMyGirlFriend
         BinaryTree
         Tree
         LinkList
-        StackAndQueue)
+        StackAndQueue
+        RecursionAndLoop
+        SortAndFind)
 
 add_subdirectory(Google_tests)

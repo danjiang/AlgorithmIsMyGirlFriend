@@ -1,0 +1,10 @@
+//
+// Created by Dan Jiang on 2020/7/20.
+//
+
+#ifndef ALGORITHMISMYGIRLFRIEND_SORT_INSERTION_SORT_H_
+#define ALGORITHMISMYGIRLFRIEND_SORT_INSERTION_SORT_H_
+
+void InsertionSort(int array[], int size);
+
+#endif //ALGORITHMISMYGIRLFRIEND_SORT_INSERTION_SORT_H_

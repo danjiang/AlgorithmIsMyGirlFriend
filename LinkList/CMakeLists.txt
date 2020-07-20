@@ -17,7 +17,6 @@ set(HEADER_FILES
         check_palindromic_string_in_link_list.h)
 
 set(SOURCE_FILES
-        ../common.cpp
         link_list.cpp
         print_link_list_reverse.cpp
         link_list_append_node.cpp

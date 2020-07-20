@@ -6,7 +6,6 @@ set(HEADER_FILES
         get_tree_last_common_parent.h)
 
 set(SOURCE_FILES
-        ../common.cpp
         tree.cpp
         get_tree_last_common_parent.cpp
         )

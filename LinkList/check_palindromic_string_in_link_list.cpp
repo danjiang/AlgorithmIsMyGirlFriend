@@ -4,7 +4,7 @@
 
 #include "check_palindromic_string_in_link_list.h"
 
-bool CheckPalindromicStringInLinkList(char *string) {
+bool CheckPalindromicStringInLinkList(const char *string) {
   if (string == nullptr) {
     return false;
   }

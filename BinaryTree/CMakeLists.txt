@@ -18,7 +18,6 @@ set(HEADER_FILES
         get_binary_tree_inorder_walk_next.h)
 
 set(SOURCE_FILES
-        ../common.cpp
         binary_tree.cpp
         find_kth_node_in_bst.cpp
         construct_binary_tree_with_preorder_inorder_walk_result.cpp

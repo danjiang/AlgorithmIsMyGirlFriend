@@ -7,7 +7,6 @@ set(HEADER_FILES
         is_pop_order_of_stack.h)
 
 set(SOURCE_FILES
-        ../common.cpp
         queue.cpp
         stack.cpp
         is_pop_order_of_stack.cpp)

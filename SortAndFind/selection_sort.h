@@ -1,0 +1,10 @@
+//
+// Created by Dan Jiang on 2020/7/20.
+//
+
+#ifndef ALGORITHMISMYGIRLFRIEND_SORT_SELECTION_SORT_H_
+#define ALGORITHMISMYGIRLFRIEND_SORT_SELECTION_SORT_H_
+
+void SelectionSort(int array[], int size);
+
+#endif //ALGORITHMISMYGIRLFRIEND_SORT_SELECTION_SORT_H_

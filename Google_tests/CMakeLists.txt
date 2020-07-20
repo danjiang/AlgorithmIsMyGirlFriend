@@ -28,13 +28,16 @@ add_executable(Google_Tests_run
         LinkList/OtherLinkListTest.cpp
         StackAndQueue/QueueTest.cpp
         StackAndQueue/StackTest.cpp
-        StackAndQueue/IsPopOrderOfStackTest.cpp)
+        StackAndQueue/IsPopOrderOfStackTest.cpp
+        RecursionAndLoop/FibonacciTest.cpp RecursionAndLoop/PrintDiceProbabilityTest.cpp SortAndFind/SortTest.cpp)
 
 # linking Google_Tests_run with BinaryTree which will be tested
 target_link_libraries(Google_Tests_run
         BinaryTree
         Tree
         LinkList
-        StackAndQueue)
+        StackAndQueue
+        RecursionAndLoop
+        SortAndFind)
 
 target_link_libraries(Google_Tests_run gtest gtest_main)
