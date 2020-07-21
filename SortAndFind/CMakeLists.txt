@@ -8,7 +8,8 @@ set(HEADER_FILES
         selection_sort.h
         merge_sort.h
         quick_sort.h
-        find_max_kth_in_unsorted_array.h)
+        find_max_kth_in_unsorted_array.h
+        counting_sort.h)
 
 set(SOURCE_FILES
         bubble_sort.cpp
@@ -17,6 +18,7 @@ set(SOURCE_FILES
         selection_sort.cpp
         merge_sort.cpp
         quick_sort.cpp
-        find_max_kth_in_unsorted_array.cpp)
+        find_max_kth_in_unsorted_array.cpp
+        counting_sort.cpp)
 
 add_library(SortAndFind STATIC ${SOURCE_FILES} ${HEADER_FILES})
