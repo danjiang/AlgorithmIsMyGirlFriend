@@ -17,4 +17,9 @@ class invalid_operation: public std::logic_error {
   explicit invalid_operation(const std::string &s): std::logic_error(s) {}
 };
 
+class not_found: public std::logic_error {
+ public:
+  explicit not_found(const std::string &s): std::logic_error(s) {}
+};
+
 #endif //ALGORITHMISMYGIRLFRIEND_COMMON_H
