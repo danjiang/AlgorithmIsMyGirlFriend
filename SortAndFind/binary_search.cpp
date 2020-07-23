@@ -45,3 +45,95 @@ int BinarySearchRecursion(const int array[], int size, int value) {
   }
   return BinarySearchRecursionCore(array, 0, size - 1, value);
 }
+
+int BinarySearchFirstEQ(const int *array, int size, int value) {
+  if (array == nullptr || size <= 0) {
+    throw invalid_input("invalid input");
+  }
+  int low = 0;
+  int high = size - 1;
+  while (low <= high) {
+    int middle = low + ((high - low) >> 1);
+    if (array[middle] == value) {
+      if (middle == 0 || array[middle - 1] != value) {
+        return middle;
+      } else {
+        high = middle - 1;
+      }
+    } else if (value < array[middle]) {
+      high = middle - 1;
+    } else {
+      low = middle + 1;
+    }
+  }
+
+  throw not_found(std::to_string(value) + " is not found");
+}
+
+int BinarySearchLastEQ(const int *array, int size, int value) {
+  if (array == nullptr || size <= 0) {
+    throw invalid_input("invalid input");
+  }
+  int low = 0;
+  int high = size - 1;
+  while (low <= high) {
+    int middle = low + ((high - low) >> 1);
+    if (array[middle] == value) {
+      if (middle == size - 1 || array[middle + 1] != value) {
+        return middle;
+      } else {
+        low = middle + 1;
+      }
+    } else if (value < array[middle]) {
+      high = middle - 1;
+    } else {
+      low = middle + 1;
+    }
+  }
+
+  throw not_found(std::to_string(value) + " is not found");
+}
+
+int BinarySearchFirstGE(const int *array, int size, int value) {
+  if (array == nullptr || size <= 0) {
+    throw invalid_input("invalid input");
+  }
+  int low = 0;
+  int high = size - 1;
+  while (low <= high) {
+    int middle = low + ((high - low) >> 1);
+    if (array[middle] >= value) {
+      if (middle == 0 || array[middle - 1] < value) {
+        return middle;
+      } else {
+        high = middle - 1;
+      }
+    } else {
+      low = middle + 1;
+    }
+  }
+
+  throw not_found(std::to_string(value) + " is not found");
+}
+
+int BinarySearchLastLE(const int array[], int size, int value) {
+  if (array == nullptr || size <= 0) {
+    throw invalid_input("invalid input");
+  }
+  int low = 0;
+  int high = size - 1;
+  while (low <= high) {
+    int middle = low + ((high - low) >> 1);
+    if (array[middle] <= value) {
+      if (middle == size - 1 || array[middle + 1] > value) {
+        return middle;
+      } else {
+        low = middle + 1;
+      }
+    } else {
+      high = middle - 1;
+    }
+  }
+
+  throw not_found(std::to_string(value) + " is not found");
+}

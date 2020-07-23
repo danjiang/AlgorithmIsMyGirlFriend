@@ -12,7 +12,7 @@
 #include "quick_sort.h"
 #include "find_max_kth_in_unsorted_array.h"
 
-class SortArrayFixture : public ::testing::Test {
+class UnsortArrayFixture : public ::testing::Test {
 
  protected:
   virtual void SetUp() {
@@ -37,42 +37,42 @@ class SortArrayFixture : public ::testing::Test {
   int sorted_array[5];
 };
 
-TEST_F(SortArrayFixture, BubbleSort) {
+TEST_F(UnsortArrayFixture, BubbleSort) {
   BubbleSort(unsorted_array, size);
   EXPECT_TRUE(IsSameArray(unsorted_array, sorted_array, size));
 }
 
-TEST_F(SortArrayFixture, InsertionSort) {
+TEST_F(UnsortArrayFixture, InsertionSort) {
   InsertionSort(unsorted_array, size);
   EXPECT_TRUE(IsSameArray(unsorted_array, sorted_array, size));
 }
 
-TEST_F(SortArrayFixture, SelectionSort) {
+TEST_F(UnsortArrayFixture, SelectionSort) {
   SelectionSort(unsorted_array, size);
   EXPECT_TRUE(IsSameArray(unsorted_array, sorted_array, size));
 }
 
-TEST_F(SortArrayFixture, MergeSort) {
+TEST_F(UnsortArrayFixture, MergeSort) {
   MergeSort(unsorted_array, size, 0, size - 1);
   EXPECT_TRUE(IsSameArray(unsorted_array, sorted_array, size));
 }
 
-TEST_F(SortArrayFixture, QuickSort) {
+TEST_F(UnsortArrayFixture, QuickSort) {
   QuickSort(unsorted_array, size, 0, size - 1);
   EXPECT_TRUE(IsSameArray(unsorted_array, sorted_array, size));
 }
 
-TEST_F(SortArrayFixture, FindMaxKthInUnsortedArrayFirst) {
+TEST_F(UnsortArrayFixture, FindMaxKthInUnsortedArrayFirst) {
   int k = 1;
   EXPECT_EQ(FindMaxKthInUnsortedArray(k, unsorted_array, size), sorted_array[size - k]);
 }
 
-TEST_F(SortArrayFixture, FindMaxKthInUnsortedArrayMiddle) {
+TEST_F(UnsortArrayFixture, FindMaxKthInUnsortedArrayMiddle) {
   int k = 3;
   EXPECT_EQ(FindMaxKthInUnsortedArray(k, unsorted_array, size), sorted_array[size - k]);
 }
 
-TEST_F(SortArrayFixture, FindMaxKthInUnsortedArrayLast) {
+TEST_F(UnsortArrayFixture, FindMaxKthInUnsortedArrayLast) {
   int k = 5;
   EXPECT_EQ(FindMaxKthInUnsortedArray(k, unsorted_array, size), sorted_array[size - k]);
 }

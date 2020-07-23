@@ -11,7 +11,9 @@ set(HEADER_FILES
         find_max_kth_in_unsorted_array.h
         counting_sort.h
         binary_search.h
-        sqrt_binary_search.h)
+        sqrt.h
+        rotated_array.h
+        binary_search2.h)
 
 set(SOURCE_FILES
         bubble_sort.cpp
@@ -23,6 +25,8 @@ set(SOURCE_FILES
         find_max_kth_in_unsorted_array.cpp
         counting_sort.cpp
         binary_search.cpp
-        sqrt_binary_search.cpp)
+        sqrt.cpp
+        rotated_array.cpp
+        binary_search2.cpp)
 
 add_library(SortAndFind STATIC ${SOURCE_FILES} ${HEADER_FILES})

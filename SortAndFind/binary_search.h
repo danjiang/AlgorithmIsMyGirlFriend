@@ -9,5 +9,9 @@
 
 int BinarySearchLoop(const int array[], int size, int value);
 int BinarySearchRecursion(const int array[], int size, int value);
+int BinarySearchFirstEQ(const int *array, int size, int value);
+int BinarySearchLastEQ(const int *array, int size, int value);
+int BinarySearchFirstGE(const int *array, int size, int value);
+int BinarySearchLastLE(const int *array, int size, int value);
 
 #endif //ALGORITHMISMYGIRLFRIEND_SORTANDFIND_BINARY_SEARCH_H_

@@ -6,7 +6,7 @@
 
 #include "binary_search.h"
 
-class BinarySearchArrayFixture : public ::testing::Test {
+class DistinctSortedArrayFixture : public ::testing::Test {
 
  protected:
   virtual void SetUp() {
@@ -29,7 +29,7 @@ class BinarySearchArrayFixture : public ::testing::Test {
   int sorted_array[10];
 };
 
-TEST_F(BinarySearchArrayFixture, BinarySearchLoop) {
+TEST_F(DistinctSortedArrayFixture, BinarySearchLoop) {
   int value = 19;
   int index = BinarySearchLoop(sorted_array, size, value);
   EXPECT_EQ(sorted_array[index], value);
@@ -51,7 +51,7 @@ TEST_F(BinarySearchArrayFixture, BinarySearchLoop) {
   EXPECT_THROW(BinarySearchLoop(nullptr, 0, 0), invalid_input);
 }
 
-TEST_F(BinarySearchArrayFixture, BinarySearchRecursion) {
+TEST_F(DistinctSortedArrayFixture, BinarySearchRecursion) {
   int value = 19;
   int index = BinarySearchRecursion(sorted_array, size, value);
   EXPECT_EQ(sorted_array[index], value);

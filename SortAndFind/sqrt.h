@@ -1,0 +1,10 @@
+//
+// Created by Dan Jiang on 2020/7/21.
+//
+
+#ifndef ALGORITHMISMYGIRLFRIEND_SORTANDFIND_SQRT_H_
+#define ALGORITHMISMYGIRLFRIEND_SORTANDFIND_SQRT_H_
+
+double Sqrt(double value, double precision);
+
+#endif //ALGORITHMISMYGIRLFRIEND_SORTANDFIND_SQRT_H_
