@@ -1,0 +1,11 @@
+//
+// Created by Dan Jiang on 2020/7/24.
+//
+
+#ifndef ALGORITHMISMYGIRLFRIEND_BITWISE_COUNT_ONE_OF_NUMBER_H_
+#define ALGORITHMISMYGIRLFRIEND_BITWISE_COUNT_ONE_OF_NUMBER_H_
+
+int CountOneOfNumberNormal(int n);
+int CountOneOfNumberBest(int n);
+
+#endif //ALGORITHMISMYGIRLFRIEND_BITWISE_COUNT_ONE_OF_NUMBER_H_
