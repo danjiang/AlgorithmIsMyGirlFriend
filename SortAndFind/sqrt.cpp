@@ -24,4 +24,5 @@ double Sqrt(double value, double precision) {
       low = middle;
     }
   }
+  return 0;
 }

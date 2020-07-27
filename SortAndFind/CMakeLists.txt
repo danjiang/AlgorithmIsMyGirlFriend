@@ -3,7 +3,6 @@ project(SortAndFind)
 set(HEADER_FILES
         ../common.h
         bubble_sort.h
-        array_util.h
         insertion_sort.h
         selection_sort.h
         merge_sort.h
@@ -17,7 +16,6 @@ set(HEADER_FILES
 
 set(SOURCE_FILES
         bubble_sort.cpp
-        array_util.cpp
         insertion_sort.cpp
         selection_sort.cpp
         merge_sort.cpp
