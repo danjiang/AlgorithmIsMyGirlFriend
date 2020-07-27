@@ -12,7 +12,8 @@ include_directories(
         StackAndQueue
         RecursionAndLoop
         SortAndFind
-        Bitwise)
+        Bitwise
+        HashTable)
 add_subdirectory(BinaryTree)
 add_subdirectory(Tree)
 add_subdirectory(LinkList)
@@ -20,6 +21,7 @@ add_subdirectory(StackAndQueue)
 add_subdirectory(RecursionAndLoop)
 add_subdirectory(SortAndFind)
 add_subdirectory(Bitwise)
+add_subdirectory(HashTable)
 
 target_link_libraries(AlgorithmIsMyGirlFriend
         BinaryTree
@@ -28,6 +30,7 @@ target_link_libraries(AlgorithmIsMyGirlFriend
         StackAndQueue
         RecursionAndLoop
         SortAndFind
-        Bitwise)
+        Bitwise
+        HashTable)
 
 add_subdirectory(Google_tests)

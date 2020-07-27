@@ -40,7 +40,9 @@ add_executable(Google_Tests_run
         SortAndFind/RepeatRotatedArrayTest.cpp
         SortAndFind/BinarySearch2Test.cpp
         Bitwise/CountOneOfNumberTest.cpp
-        Bitwise/FindNumbersAppearOnce.cpp Bitwise/AddWithBitwiseTest.cpp)
+        Bitwise/FindNumbersAppearOnce.cpp
+        Bitwise/AddWithBitwiseTest.cpp
+        HashTable/CharHashTableTest.cpp)
 
 # linking Google_Tests_run with BinaryTree which will be tested
 target_link_libraries(Google_Tests_run
@@ -50,6 +52,7 @@ target_link_libraries(Google_Tests_run
         StackAndQueue
         RecursionAndLoop
         SortAndFind
-        Bitwise)
+        Bitwise
+        HashTable)
 
 target_link_libraries(Google_Tests_run gtest gtest_main)
