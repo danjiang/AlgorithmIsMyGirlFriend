@@ -21,7 +21,6 @@ void DestroyBinaryTree(BinaryTreeNode *root) {
     DestroyBinaryTree(root->left);
     DestroyBinaryTree(root->right);
     delete root;
-    root = nullptr;
   }
 }
 

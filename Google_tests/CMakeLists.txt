@@ -46,7 +46,9 @@ add_executable(Google_Tests_run
         Array/FindDuplicateNumberOfArrayTest.cpp
         Array/FindNumberOfMatrixTest.cpp
         Array/DivideArrayTest.cpp
-        String/StringToIntTest.cpp String/ReverseStringTest.cpp)
+        String/StringToIntTest.cpp
+        String/ReverseStringTest.cpp
+        BinaryTree/BinarySearchTreeTest.cpp)
 
 # linking Google_Tests_run with BinaryTree which will be tested
 target_link_libraries(Google_Tests_run

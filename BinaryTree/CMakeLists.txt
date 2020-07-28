@@ -15,7 +15,8 @@ set(HEADER_FILES
         binary_tree_depth.h
         binary_tree_is_balance.h
         binary_tree_is_symmetrical.h
-        get_binary_tree_inorder_walk_next.h)
+        get_binary_tree_inorder_walk_next.h
+        binary_search_tree.h)
 
 set(SOURCE_FILES
         binary_tree.cpp
@@ -31,6 +32,7 @@ set(SOURCE_FILES
         binary_tree_depth.cpp
         binary_tree_is_balance.cpp
         binary_tree_is_symmetrical.cpp
-        get_binary_tree_inorder_walk_next.cpp)
+        get_binary_tree_inorder_walk_next.cpp
+        binary_search_tree.cpp)
 
 add_library(BinaryTree STATIC ${SOURCE_FILES} ${HEADER_FILES})

@@ -4,7 +4,7 @@ set(HEADER_FILES
         ../common.h
         array_util.h
         find_duplicate_number_of_array.h
-        find_number_of_matrix.ho
+        find_number_of_matrix.h
         divide_array.h)
 
 set(SOURCE_FILES
