@@ -17,7 +17,7 @@ add_executable(Google_Tests_run
         BinaryTree/OtherBinaryTreeTest.cpp
         BinaryTree/NonCompleteBSTTest.cpp
         BinaryTree/BinaryTreeIsSymmetricalTest.cpp
-        TreeTest.cpp
+        Tree/TreeTest.cpp
         LinkList/NormalLinkListTest.cpp
         LinkList/TwoNodesLinkListTest.cpp
         LinkList/OneNodeLinkListTest.cpp
@@ -48,7 +48,12 @@ add_executable(Google_Tests_run
         Array/DivideArrayTest.cpp
         String/StringToIntTest.cpp
         String/ReverseStringTest.cpp
-        BinaryTree/BinarySearchTreeTest.cpp)
+        BinaryTree/BinarySearchTreeTest.cpp
+        Other/PowerTest.cpp
+        String/PrintOneToMaxOfNDigitsTest.cpp
+        String/IsStringRepresentNumberTest.cpp
+        SortAndFind/FindMoreThanHalfNumberInUnsortedArrayTest.cpp
+        SortAndFind/FindMinKthInUnsortedArrayTest.cpp)
 
 # linking Google_Tests_run with BinaryTree which will be tested
 target_link_libraries(Google_Tests_run
@@ -61,6 +66,7 @@ target_link_libraries(Google_Tests_run
         Bitwise
         HashTable
         Array
-        String)
+        String
+        Other)
 
 target_link_libraries(Google_Tests_run gtest gtest_main)

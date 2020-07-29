@@ -1,0 +1,12 @@
+//
+// Created by Dan Jiang on 2020/7/29.
+//
+
+#ifndef ALGORITHMISMYGIRLFRIEND_SORTANDFIND_FIND_MIN_KTH_IN_UNSORTED_ARRAY_H_
+#define ALGORITHMISMYGIRLFRIEND_SORTANDFIND_FIND_MIN_KTH_IN_UNSORTED_ARRAY_H_
+
+#include "../common.h"
+
+void FindMinKthInUnsortedArray(int k, int array[], int size, int mins[]);
+
+#endif //ALGORITHMISMYGIRLFRIEND_SORTANDFIND_FIND_MIN_KTH_IN_UNSORTED_ARRAY_H_

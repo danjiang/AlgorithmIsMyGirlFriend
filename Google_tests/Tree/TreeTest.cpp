@@ -7,9 +7,9 @@
 #include "get_tree_last_common_parent.h"
 
 TEST(Tree, Test1) {
-//              1
-//            /   \
-//           2     3
+//           1
+//         /   \
+//        2     3
 //       /       \
 //      4         5
 //     / \      / |  \

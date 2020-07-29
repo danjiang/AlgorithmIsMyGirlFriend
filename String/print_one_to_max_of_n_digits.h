@@ -1,0 +1,11 @@
+//
+// Created by Dan Jiang on 2020/7/29.
+//
+
+#ifndef ALGORITHMISMYGIRLFRIEND_STRING_PRINT_ONE_TO_MAX_OF_N_DIGITS_H_
+#define ALGORITHMISMYGIRLFRIEND_STRING_PRINT_ONE_TO_MAX_OF_N_DIGITS_H_
+
+void PrintOneToMaxOfNDigitsIncrement(int n);
+void PrintOneToMaxOfNDigitsRecursion(int n);
+
+#endif //ALGORITHMISMYGIRLFRIEND_STRING_PRINT_ONE_TO_MAX_OF_N_DIGITS_H_

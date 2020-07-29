@@ -15,7 +15,8 @@ include_directories(
         Bitwise
         HashTable
         Array
-        String)
+        String
+        Other)
 add_subdirectory(BinaryTree)
 add_subdirectory(Tree)
 add_subdirectory(LinkList)
@@ -26,6 +27,7 @@ add_subdirectory(Bitwise)
 add_subdirectory(HashTable)
 add_subdirectory(Array)
 add_subdirectory(String)
+add_subdirectory(Other)
 
 target_link_libraries(AlgorithmIsMyGirlFriend
         BinaryTree
@@ -37,6 +39,7 @@ target_link_libraries(AlgorithmIsMyGirlFriend
         Bitwise
         HashTable
         Array
-        String)
+        String
+        Other)
 
 add_subdirectory(Google_tests)
