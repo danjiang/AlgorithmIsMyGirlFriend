@@ -53,7 +53,8 @@ add_executable(Google_Tests_run
         String/PrintOneToMaxOfNDigitsTest.cpp
         String/IsStringRepresentNumberTest.cpp
         SortAndFind/FindMoreThanHalfNumberInUnsortedArrayTest.cpp
-        SortAndFind/FindMinKthInUnsortedArrayTest.cpp)
+        SortAndFind/FindMinKthInUnsortedArrayTest.cpp
+        BinaryTree/HeapTest.cpp)
 
 # linking Google_Tests_run with BinaryTree which will be tested
 target_link_libraries(Google_Tests_run

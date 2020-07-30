@@ -11,6 +11,7 @@
 #include "merge_sort.h"
 #include "quick_sort.h"
 #include "find_max_kth_in_unsorted_array.h"
+#include "heap_sort.h"
 
 class UnsortArrayFixture : public ::testing::Test {
 
@@ -75,4 +76,16 @@ TEST_F(UnsortArrayFixture, FindMaxKthInUnsortedArrayMiddle) {
 TEST_F(UnsortArrayFixture, FindMaxKthInUnsortedArrayLast) {
   int k = 5;
   EXPECT_EQ(FindMaxKthInUnsortedArray(k, unsorted_array, size), sorted_array[size - k]);
+}
+
+TEST_F(UnsortArrayFixture, HeapSort) {
+  int array[size + 1];
+  for (int i = 0; i < size; ++i) {
+    array[i + 1] = unsorted_array[i];
+  }
+  HeapSort(array, size + 1);
+  for (int i = 0; i < size; ++i) {
+    unsorted_array[i] = array[i + 1];
+  }
+  EXPECT_TRUE(IsSameArray(unsorted_array, sorted_array, size));
 }

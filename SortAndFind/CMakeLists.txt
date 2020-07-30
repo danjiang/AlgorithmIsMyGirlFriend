@@ -14,7 +14,8 @@ set(HEADER_FILES
         rotated_array.h
         binary_search2.h
         find_more_than_half_number_in_unsorted_array.h
-        find_min_kth_in_unsorted_array.h)
+        find_min_kth_in_unsorted_array.h
+        heap_sort.h)
 
 set(SOURCE_FILES
         bubble_sort.cpp
@@ -29,6 +30,7 @@ set(SOURCE_FILES
         rotated_array.cpp
         binary_search2.cpp
         find_more_than_half_number_in_unsorted_array.cpp
-        find_min_kth_in_unsorted_array.cpp)
+        find_min_kth_in_unsorted_array.cpp
+        heap_sort.cpp)
 
 add_library(SortAndFind STATIC ${SOURCE_FILES} ${HEADER_FILES})
