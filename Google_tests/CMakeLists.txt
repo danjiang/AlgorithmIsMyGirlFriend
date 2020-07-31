@@ -54,7 +54,9 @@ add_executable(Google_Tests_run
         String/IsStringRepresentNumberTest.cpp
         SortAndFind/FindMoreThanHalfNumberInUnsortedArrayTest.cpp
         SortAndFind/FindMinKthInUnsortedArrayTest.cpp
-        BinaryTree/HeapTest.cpp)
+        BinaryTree/HeapTest.cpp
+        Graph/GraphSearchTest.cpp
+        BinaryTree/GetMiddleNumberOfStreamTest.cpp)
 
 # linking Google_Tests_run with BinaryTree which will be tested
 target_link_libraries(Google_Tests_run
@@ -68,6 +70,7 @@ target_link_libraries(Google_Tests_run
         HashTable
         Array
         String
-        Other)
+        Other
+        Graph)
 
 target_link_libraries(Google_Tests_run gtest gtest_main)

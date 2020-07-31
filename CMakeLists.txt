@@ -16,7 +16,8 @@ include_directories(
         HashTable
         Array
         String
-        Other)
+        Other
+        Graph)
 add_subdirectory(BinaryTree)
 add_subdirectory(Tree)
 add_subdirectory(LinkList)
@@ -28,6 +29,7 @@ add_subdirectory(HashTable)
 add_subdirectory(Array)
 add_subdirectory(String)
 add_subdirectory(Other)
+add_subdirectory(Graph)
 
 target_link_libraries(AlgorithmIsMyGirlFriend
         BinaryTree
@@ -40,6 +42,7 @@ target_link_libraries(AlgorithmIsMyGirlFriend
         HashTable
         Array
         String
-        Other)
+        Other
+        Graph)
 
 add_subdirectory(Google_tests)

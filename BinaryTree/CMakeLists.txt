@@ -17,7 +17,8 @@ set(HEADER_FILES
         binary_tree_is_symmetrical.h
         get_binary_tree_inorder_walk_next.h
         binary_search_tree.h
-        heap.h)
+        heap.h
+        get_middle_number_of_stream.h)
 
 set(SOURCE_FILES
         binary_tree.cpp
@@ -35,6 +36,7 @@ set(SOURCE_FILES
         binary_tree_is_symmetrical.cpp
         get_binary_tree_inorder_walk_next.cpp
         binary_search_tree.cpp
-        heap.cpp)
+        heap.cpp
+        get_middle_number_of_stream.cpp)
 
 add_library(BinaryTree STATIC ${SOURCE_FILES} ${HEADER_FILES})
