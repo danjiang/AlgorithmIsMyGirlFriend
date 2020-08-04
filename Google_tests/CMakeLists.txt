@@ -57,7 +57,11 @@ add_executable(Google_Tests_run
         BinaryTree/HeapTest.cpp
         Graph/GraphSearchTest.cpp
         BinaryTree/GetMiddleNumberOfStreamTest.cpp
-        String/StringMatchTest.cpp)
+        String/StringMatchTest.cpp
+        String/ReplaceStringSpaceTest.cpp
+        String/SimpleRegularExpressionTest.cpp
+        String/StringPermutationTest.cpp
+        String/CountTranslatedNumberToStringTest.cpp)
 
 # linking Google_Tests_run with BinaryTree which will be tested
 target_link_libraries(Google_Tests_run

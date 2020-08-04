@@ -1,0 +1,12 @@
+//
+// Created by Dan Jiang on 2020/8/4.
+//
+
+#ifndef ALGORITHMISMYGIRLFRIEND_STRING_STRING_PERMUTATION_H_
+#define ALGORITHMISMYGIRLFRIEND_STRING_STRING_PERMUTATION_H_
+
+#include "../common.h"
+
+void StringPermutation(char *string);
+
+#endif //ALGORITHMISMYGIRLFRIEND_STRING_STRING_PERMUTATION_H_

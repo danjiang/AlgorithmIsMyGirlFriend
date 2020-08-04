@@ -1,0 +1,12 @@
+//
+// Created by Dan Jiang on 2020/8/4.
+//
+
+#ifndef ALGORITHMISMYGIRLFRIEND_STRING_SIMPLE_REGULAR_EXPRESSION_H_
+#define ALGORITHMISMYGIRLFRIEND_STRING_SIMPLE_REGULAR_EXPRESSION_H_
+
+#include "../common.h"
+
+bool SimpleRegularExpression(char *string, char *pattern);
+
+#endif //ALGORITHMISMYGIRLFRIEND_STRING_SIMPLE_REGULAR_EXPRESSION_H_
