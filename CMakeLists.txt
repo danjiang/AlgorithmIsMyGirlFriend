@@ -10,7 +10,7 @@ include_directories(
         Tree
         LinkList
         StackAndQueue
-        RecursionAndLoop
+        SkillAndThought
         SortAndFind
         Bitwise
         HashTable
@@ -22,7 +22,7 @@ add_subdirectory(BinaryTree)
 add_subdirectory(Tree)
 add_subdirectory(LinkList)
 add_subdirectory(StackAndQueue)
-add_subdirectory(RecursionAndLoop)
+add_subdirectory(SkillAndThought)
 add_subdirectory(SortAndFind)
 add_subdirectory(Bitwise)
 add_subdirectory(HashTable)
@@ -36,7 +36,7 @@ target_link_libraries(AlgorithmIsMyGirlFriend
         Tree
         LinkList
         StackAndQueue
-        RecursionAndLoop
+        SkillAndThought
         SortAndFind
         Bitwise
         HashTable

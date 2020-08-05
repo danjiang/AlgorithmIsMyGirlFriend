@@ -29,8 +29,8 @@ add_executable(Google_Tests_run
         StackAndQueue/QueueTest.cpp
         StackAndQueue/StackTest.cpp
         StackAndQueue/IsPopOrderOfStackTest.cpp
-        RecursionAndLoop/FibonacciTest.cpp
-        RecursionAndLoop/PrintDiceProbabilityTest.cpp
+        SkillAndThought/FibonacciTest.cpp
+        SkillAndThought/PrintDiceProbabilityTest.cpp
         SortAndFind/UnsortArrayTest.cpp
         SortAndFind/CountingSortTest.cpp
         SortAndFind/DistinctSortedArrayTest.cpp
@@ -61,7 +61,12 @@ add_executable(Google_Tests_run
         String/ReplaceStringSpaceTest.cpp
         String/SimpleRegularExpressionTest.cpp
         String/StringPermutationTest.cpp
-        String/CountTranslatedNumberToStringTest.cpp)
+        String/CountTranslatedNumberToStringTest.cpp
+        SkillAndThought/CountInversePairsTest.cpp
+        SkillAndThought/Print8QueensTest.cpp
+        SkillAndThought/FillBagTest.cpp
+        SkillAndThought/SimpleRegularExpression2Test.cpp
+        SkillAndThought/HasStringPathInMatrixTest.cpp)
 
 # linking Google_Tests_run with BinaryTree which will be tested
 target_link_libraries(Google_Tests_run
@@ -69,7 +74,7 @@ target_link_libraries(Google_Tests_run
         Tree
         LinkList
         StackAndQueue
-        RecursionAndLoop
+        SkillAndThought
         SortAndFind
         Bitwise
         HashTable
