@@ -17,7 +17,7 @@ void PrintBag(int max_weight, bool max_choosed_items[], int items[], int size) {
 void FillBagCore(int index, int weight, bool choosed_items[],
                  int *max_weight, bool max_choosed_items[],
                  int items[], int size, int bag_max_weight) {
-  choosed_items[index] = false; // not choose item
+  choosed_items[index] = false; // not choose item for right now
   if (weight == bag_max_weight || index == size) { // bag is full or no items
     if (weight > *max_weight) {
       *max_weight = weight;
