@@ -67,7 +67,10 @@ add_executable(Google_Tests_run
         SkillAndThought/FillBagTest.cpp
         SkillAndThought/SimpleRegularExpression2Test.cpp
         SkillAndThought/HasStringPathInMatrixTest.cpp
-        SkillAndThought/SimpleRobotMoveTest.cpp)
+        SkillAndThought/SimpleRobotMoveTest.cpp
+        SkillAndThought/YangHuiTriangleTest.cpp
+        SkillAndThought/MoveOnMatrixTest.cpp
+        SkillAndThought/CoinChangeMemoTest.cpp)
 
 # linking Google_Tests_run with BinaryTree which will be tested
 target_link_libraries(Google_Tests_run

@@ -9,7 +9,10 @@ set(HEADER_FILES
         fill_bag.h
         simple_regular_expression2.h
         has_string_path_in_matrix.h
-        simple_robot_move.h)
+        simple_robot_move.h
+        yang_hui_triangle.h
+        move_on_matrix.h
+        coin_change.h)
 
 set(SOURCE_FILES
         fibonacci.cpp
@@ -19,6 +22,9 @@ set(SOURCE_FILES
         fill_bag.cpp
         simple_regular_expression2.cpp
         has_string_path_in_matrix.cpp
-        simple_robot_move.cpp)
+        simple_robot_move.cpp
+        yang_hui_triangle.cpp
+        move_on_matrix.cpp
+        coin_change.cpp)
 
 add_library(SkillAndThought STATIC ${SOURCE_FILES} ${HEADER_FILES})
