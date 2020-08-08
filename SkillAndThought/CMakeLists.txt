@@ -12,7 +12,9 @@ set(HEADER_FILES
         simple_robot_move.h
         yang_hui_triangle.h
         move_on_matrix.h
-        coin_change.h)
+        coin_change.h
+        string_edit_distance.h
+        longest_increase_subsequence.h)
 
 set(SOURCE_FILES
         fibonacci.cpp
@@ -25,6 +27,8 @@ set(SOURCE_FILES
         simple_robot_move.cpp
         yang_hui_triangle.cpp
         move_on_matrix.cpp
-        coin_change.cpp)
+        coin_change.cpp
+        string_edit_distance.cpp
+        longest_increase_subsequence.cpp)
 
 add_library(SkillAndThought STATIC ${SOURCE_FILES} ${HEADER_FILES})
