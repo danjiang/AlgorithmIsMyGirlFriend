@@ -14,7 +14,11 @@ set(HEADER_FILES
         move_on_matrix.h
         coin_change.h
         string_edit_distance.h
-        longest_increase_subsequence.h)
+        longest_increase_subsequence.h
+        cutting_rope.h
+        max_sum_sub_array.h
+        max_value_of_gifts.h
+        longest_no_duplicate_substring.h)
 
 set(SOURCE_FILES
         fibonacci.cpp
@@ -29,6 +33,10 @@ set(SOURCE_FILES
         move_on_matrix.cpp
         coin_change.cpp
         string_edit_distance.cpp
-        longest_increase_subsequence.cpp)
+        longest_increase_subsequence.cpp
+        cutting_rope.cpp
+        max_sum_sub_array.cpp
+        max_value_of_gifts.cpp
+        longest_no_duplicate_substring.cpp)
 
 add_library(SkillAndThought STATIC ${SOURCE_FILES} ${HEADER_FILES})

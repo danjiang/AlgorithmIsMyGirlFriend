@@ -73,7 +73,11 @@ add_executable(Google_Tests_run
         SkillAndThought/CoinChangeMemoTest.cpp
         SkillAndThought/StringEditDistanceTest.cpp
         SkillAndThought/LongestIncreaseSubsequenceTest.cpp
-        Array/FindLongestAddOneSubsequenceTest.cpp)
+        Array/FindLongestAddOneSubsequenceTest.cpp
+        SkillAndThought/CuttingRopeTest.cpp
+        SkillAndThought/MaxSumSubArrayTest.cpp
+        SkillAndThought/MaxValueOfGiftsTest.cpp
+        SkillAndThought/LongestNoDuplicateSubStringTest.cpp)
 
 # linking Google_Tests_run with BinaryTree which will be tested
 target_link_libraries(Google_Tests_run
