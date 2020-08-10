@@ -18,7 +18,8 @@ set(HEADER_FILES
         cutting_rope.h
         max_sum_sub_array.h
         max_value_of_gifts.h
-        longest_no_duplicate_substring.h)
+        longest_no_duplicate_substring.h
+        max_profit_of_stock.h)
 
 set(SOURCE_FILES
         fibonacci.cpp
@@ -37,6 +38,7 @@ set(SOURCE_FILES
         cutting_rope.cpp
         max_sum_sub_array.cpp
         max_value_of_gifts.cpp
-        longest_no_duplicate_substring.cpp)
+        longest_no_duplicate_substring.cpp
+        max_profit_of_stock.cpp)
 
 add_library(SkillAndThought STATIC ${SOURCE_FILES} ${HEADER_FILES})

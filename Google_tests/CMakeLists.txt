@@ -77,7 +77,11 @@ add_executable(Google_Tests_run
         SkillAndThought/CuttingRopeTest.cpp
         SkillAndThought/MaxSumSubArrayTest.cpp
         SkillAndThought/MaxValueOfGiftsTest.cpp
-        SkillAndThought/LongestNoDuplicateSubStringTest.cpp)
+        SkillAndThought/LongestNoDuplicateSubStringTest.cpp
+        Array/SumOfNumbersTest.cpp
+        StackAndQueue/QueueWithMaxTest.cpp
+        Other/JosephuseCircleTest.cpp
+        SkillAndThought/MaxProfitOfStockTest.cpp)
 
 # linking Google_Tests_run with BinaryTree which will be tested
 target_link_libraries(Google_Tests_run

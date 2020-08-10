@@ -1,0 +1,12 @@
+//
+// Created by Dan Jiang on 2020/8/10.
+//
+
+#ifndef ALGORITHMISMYGIRLFRIEND_ARRAY_JOSEPHUSE_CIRCLE_H_
+#define ALGORITHMISMYGIRLFRIEND_ARRAY_JOSEPHUSE_CIRCLE_H_
+
+#include "../common.h"
+
+int JosephuseCircle(int n, int m);
+
+#endif //ALGORITHMISMYGIRLFRIEND_ARRAY_JOSEPHUSE_CIRCLE_H_
