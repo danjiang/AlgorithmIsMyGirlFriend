@@ -5,6 +5,6 @@
 #ifndef ALGORITHMISMYGIRLFRIEND_SORT_MERGE_SORT_H_
 #define ALGORITHMISMYGIRLFRIEND_SORT_MERGE_SORT_H_
 
-void MergeSort(int array[], int size, int start, int end);
+void MergeSort(int array[], int size);
 
 #endif //ALGORITHMISMYGIRLFRIEND_SORT_MERGE_SORT_H_

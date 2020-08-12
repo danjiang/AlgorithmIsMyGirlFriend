@@ -6,6 +6,6 @@
 #define ALGORITHMISMYGIRLFRIEND_SORT_QUICK_SORT_H_
 
 int Partition(int array[], int start, int end);
-void QuickSort(int array[], int size, int start, int end);
+void QuickSort(int array[], int size);
 
 #endif //ALGORITHMISMYGIRLFRIEND_SORT_QUICK_SORT_H_

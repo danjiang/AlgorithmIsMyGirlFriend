@@ -51,3 +51,7 @@ void MergeSort(int array[], int size, int start, int end) {
   MergeSort(array, size, middle, end);
   Merge(array, start, middle, end);
 }
+
+void MergeSort(int array[], int size) {
+  MergeSort(array, size, 0, size - 1);
+}

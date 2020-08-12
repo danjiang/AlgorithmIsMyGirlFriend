@@ -54,12 +54,12 @@ TEST_F(UnsortArrayFixture, SelectionSort) {
 }
 
 TEST_F(UnsortArrayFixture, MergeSort) {
-  MergeSort(unsorted_array, size, 0, size - 1);
+  MergeSort(unsorted_array, size);
   EXPECT_TRUE(IsSameArray(unsorted_array, sorted_array, size));
 }
 
 TEST_F(UnsortArrayFixture, QuickSort) {
-  QuickSort(unsorted_array, size, 0, size - 1);
+  QuickSort(unsorted_array, size);
   EXPECT_TRUE(IsSameArray(unsorted_array, sorted_array, size));
 }
 

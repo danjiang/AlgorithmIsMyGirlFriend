@@ -39,3 +39,7 @@ void QuickSort(int array[], int size, int start, int end) {
     QuickSort(array, size, index + 1, end);
   }
 }
+
+void QuickSort(int array[], int size) {
+  QuickSort(array, size, 0, size - 1);
+}
