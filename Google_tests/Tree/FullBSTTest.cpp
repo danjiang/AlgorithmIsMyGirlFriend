@@ -9,7 +9,7 @@
 #include "is_postorder_sequence_of_bst.h"
 #include "bst_to_link_list.h"
 
-class CompleteBSTFixture : public ::testing::Test {
+class FullBSTFixture : public ::testing::Test {
 
  protected:
   virtual void SetUp() {
@@ -41,7 +41,7 @@ class CompleteBSTFixture : public ::testing::Test {
   bool need_destroy = true;
 };
 
-TEST_F(CompleteBSTFixture, FindKthNodeInBST) {
+TEST_F(FullBSTFixture, FindKthNodeInBST) {
   EXPECT_EQ(FindKthNodeInBST(root, 1)->value, 4);
   EXPECT_EQ(FindKthNodeInBST(root, 5)->value, 12);
   EXPECT_EQ(FindKthNodeInBST(root, 7)->value, 16);
@@ -50,13 +50,13 @@ TEST_F(CompleteBSTFixture, FindKthNodeInBST) {
   EXPECT_EQ(FindKthNodeInBST(root, 8), nullptr);
 }
 
-TEST_F(CompleteBSTFixture, IsPostorderSequenceOfBST) {
+TEST_F(FullBSTFixture, IsPostorderSequenceOfBST) {
   int sequence[] = { 4, 8, 6, 12, 16, 14, 10 };
   int length = sizeof(sequence) / sizeof(int);
   EXPECT_TRUE(IsPostorderSequenceOfBST(sequence, length));
 }
 
-TEST_F(CompleteBSTFixture, BST2LinkList) {
+TEST_F(FullBSTFixture, BST2LinkList) {
   BinaryTreeNode *head = BST2LinkList(root);
 
   std::ostringstream os;

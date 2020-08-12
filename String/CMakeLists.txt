@@ -10,7 +10,8 @@ set(HEADER_FILES
         replace_string_space.h
         simple_regular_expression.h
         string_permutation.h
-        translate_number_to_string.h)
+        translate_number_to_string.h
+        char_hash_table.h)
 
 set(SOURCE_FILES
         string_to_int.cpp
@@ -21,6 +22,7 @@ set(SOURCE_FILES
         replace_string_space.cpp
         simple_regular_expression.cpp
         string_permutation.cpp
-        translate_number_to_string.cpp)
+        translate_number_to_string.cpp
+        char_hash_table.cpp)
 
 add_library(String STATIC ${SOURCE_FILES} ${HEADER_FILES})

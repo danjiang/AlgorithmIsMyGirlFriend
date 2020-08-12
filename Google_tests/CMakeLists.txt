@@ -5,18 +5,18 @@ include_directories(${gtest_SOURCE_DIR}/include ${gtest_SOURCE_DIR})
 
 # adding the Google_Tests_run target
 add_executable(Google_Tests_run
-        BinaryTree/CompleteBSTTest.cpp
-        BinaryTree/OnlyLeftNodeBSTTest.cpp
-        BinaryTree/OnlyRightNodeBSTTest.cpp
-        BinaryTree/EmptyBinaryTreeTest.cpp
-        BinaryTree/OneNodeBinaryTreeTest.cpp
-        BinaryTree/CompleteBinaryTreeTest.cpp
-        BinaryTree/NonCompleteBinaryTreeTest.cpp
-        BinaryTree/OnlyLeftNodeBinaryTreeTest.cpp
-        BinaryTree/OnlyRightNodeBinaryTreeTest.cpp
-        BinaryTree/OtherBinaryTreeTest.cpp
-        BinaryTree/NonCompleteBSTTest.cpp
-        BinaryTree/BinaryTreeIsSymmetricalTest.cpp
+        Tree/FullBSTTest.cpp
+        Tree/OnlyLeftNodeBSTTest.cpp
+        Tree/OnlyRightNodeBSTTest.cpp
+        Tree/EmptyBinaryTreeTest.cpp
+        Tree/OneNodeBinaryTreeTest.cpp
+        Tree/FullBinaryTreeTest.cpp
+        Tree/NonCompleteBinaryTreeTest.cpp
+        Tree/OnlyLeftNodeBinaryTreeTest.cpp
+        Tree/OnlyRightNodeBinaryTreeTest.cpp
+        Tree/OtherBinaryTreeTest.cpp
+        Tree/NonCompleteBSTTest.cpp
+        Tree/BinaryTreeIsSymmetricalTest.cpp
         Tree/TreeTest.cpp
         LinkList/NormalLinkListTest.cpp
         LinkList/TwoNodesLinkListTest.cpp
@@ -42,21 +42,21 @@ add_executable(Google_Tests_run
         Bitwise/CountOneOfNumberTest.cpp
         Bitwise/FindNumbersAppearOnce.cpp
         Bitwise/AddWithBitwiseTest.cpp
-        HashTable/CharHashTableTest.cpp
+        String/CharHashTableTest.cpp
         Array/FindDuplicateNumberOfArrayTest.cpp
         Array/FindNumberOfMatrixTest.cpp
         Array/DivideArrayTest.cpp
         String/StringToIntTest.cpp
         String/ReverseStringTest.cpp
-        BinaryTree/BinarySearchTreeTest.cpp
+        Tree/BinarySearchTreeTest.cpp
         Other/PowerTest.cpp
         String/PrintOneToMaxOfNDigitsTest.cpp
         String/IsStringRepresentNumberTest.cpp
         SortAndFind/FindMoreThanHalfNumberInUnsortedArrayTest.cpp
         SortAndFind/FindMinKthInUnsortedArrayTest.cpp
-        BinaryTree/HeapTest.cpp
+        Tree/HeapTest.cpp
         Graph/GraphSearchTest.cpp
-        BinaryTree/GetMiddleNumberOfStreamTest.cpp
+        Tree/GetMiddleNumberOfStreamTest.cpp
         String/StringMatchTest.cpp
         String/ReplaceStringSpaceTest.cpp
         String/SimpleRegularExpressionTest.cpp
@@ -83,16 +83,14 @@ add_executable(Google_Tests_run
         Other/JosephuseCircleTest.cpp
         SkillAndThought/MaxProfitOfStockTest.cpp)
 
-# linking Google_Tests_run with BinaryTree which will be tested
+# linking Google_Tests_run with Tree which will be tested
 target_link_libraries(Google_Tests_run
-        BinaryTree
         Tree
         LinkList
         StackAndQueue
         SkillAndThought
         SortAndFind
         Bitwise
-        HashTable
         Array
         String
         Other

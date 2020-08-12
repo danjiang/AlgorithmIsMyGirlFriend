@@ -13,7 +13,7 @@
 #include "binary_tree_is_balance.h"
 #include "get_binary_tree_inorder_walk_next.h"
 
-class CompleteBinaryTreeFixture : public ::testing::Test {
+class FullBinaryTreeFixture : public ::testing::Test {
 
  protected:
   virtual void SetUp() {
@@ -42,7 +42,7 @@ class CompleteBinaryTreeFixture : public ::testing::Test {
   BinaryTreeNode *root;
 };
 
-TEST_F(CompleteBinaryTreeFixture, PreorderBinaryTreeWalk) {
+TEST_F(FullBinaryTreeFixture, PreorderBinaryTreeWalk) {
   std::ostringstream os;
 
   PreorderBinaryTreeWalk(root, os);
@@ -50,7 +50,7 @@ TEST_F(CompleteBinaryTreeFixture, PreorderBinaryTreeWalk) {
   EXPECT_EQ(os.str(),"1 2 4 5 3 6 7 ");
 }
 
-TEST_F(CompleteBinaryTreeFixture, InorderBinaryTreeWalk) {
+TEST_F(FullBinaryTreeFixture, InorderBinaryTreeWalk) {
   std::ostringstream os;
 
   InorderBinaryTreeWalk(root, os);
@@ -58,7 +58,7 @@ TEST_F(CompleteBinaryTreeFixture, InorderBinaryTreeWalk) {
   EXPECT_EQ(os.str(),"4 2 5 1 6 3 7 ");
 }
 
-TEST_F(CompleteBinaryTreeFixture, PostorderBinaryTreeWalk) {
+TEST_F(FullBinaryTreeFixture, PostorderBinaryTreeWalk) {
   std::ostringstream os;
 
   PostorderBinaryTreeWalk(root, os);
@@ -66,7 +66,7 @@ TEST_F(CompleteBinaryTreeFixture, PostorderBinaryTreeWalk) {
   EXPECT_EQ(os.str(),"4 5 2 6 7 3 1 ");
 }
 
-TEST_F(CompleteBinaryTreeFixture, TopToBottomBinaryTreeWalk) {
+TEST_F(FullBinaryTreeFixture, TopToBottomBinaryTreeWalk) {
 std::ostringstream os;
 
 TopToBottomBinaryTreeWalk(root, os);
@@ -74,7 +74,7 @@ TopToBottomBinaryTreeWalk(root, os);
 EXPECT_EQ(os.str(),"1 2 3 4 5 6 7 ");
 }
 
-TEST_F(CompleteBinaryTreeFixture, TopToBottomLineBreakBinaryTreeWalk) {
+TEST_F(FullBinaryTreeFixture, TopToBottomLineBreakBinaryTreeWalk) {
   std::ostringstream os;
 
   TopToBottomLineBreakBinaryTreeWalk(root, os);
@@ -82,7 +82,7 @@ TEST_F(CompleteBinaryTreeFixture, TopToBottomLineBreakBinaryTreeWalk) {
   EXPECT_EQ(os.str(),"1 \n2 3 \n4 5 6 7 \n");
 }
 
-TEST_F(CompleteBinaryTreeFixture, TopToBottomLineBreakZBinaryTreeWalk) {
+TEST_F(FullBinaryTreeFixture, TopToBottomLineBreakZBinaryTreeWalk) {
   std::ostringstream os;
 
   TopToBottomLineBreakZBinaryTreeWalk(root, os);
@@ -90,7 +90,7 @@ TEST_F(CompleteBinaryTreeFixture, TopToBottomLineBreakZBinaryTreeWalk) {
   EXPECT_EQ(os.str(),"1 \n3 2 \n4 5 6 7 \n");
 }
 
-TEST_F(CompleteBinaryTreeFixture, ConstructBinaryTree) {
+TEST_F(FullBinaryTreeFixture, ConstructBinaryTree) {
   const int length = 7;
   int preorder[length] = { 1, 2, 4, 5, 3, 6, 7 };
   int inorder[length] = { 4, 2, 5, 1, 6, 3, 7 };
@@ -98,7 +98,7 @@ TEST_F(CompleteBinaryTreeFixture, ConstructBinaryTree) {
   EXPECT_TRUE(IsSameBinaryTree(root, new_root));
 }
 
-TEST_F(CompleteBinaryTreeFixture, MirrorBinaryTree) {
+TEST_F(FullBinaryTreeFixture, MirrorBinaryTree) {
   auto *node1 = new BinaryTreeNode(1);
   auto *node2 = new BinaryTreeNode(3);
   auto *node3 = new BinaryTreeNode(2);
@@ -113,7 +113,7 @@ TEST_F(CompleteBinaryTreeFixture, MirrorBinaryTree) {
   EXPECT_TRUE(IsSameBinaryTree(node1, root));
 }
 
-TEST_F(CompleteBinaryTreeFixture, BinaryTreeContainSubTree) {
+TEST_F(FullBinaryTreeFixture, BinaryTreeContainSubTree) {
   auto *node1 = new BinaryTreeNode(2);
   auto *node2 = new BinaryTreeNode(4);
   auto *node3 = new BinaryTreeNode(5);
@@ -127,7 +127,7 @@ TEST_F(CompleteBinaryTreeFixture, BinaryTreeContainSubTree) {
   EXPECT_FALSE(BinaryTreeContainSubTree(root, nullptr));
 }
 
-TEST_F(CompleteBinaryTreeFixture, SerializeBinaryTree) {
+TEST_F(FullBinaryTreeFixture, SerializeBinaryTree) {
   std::ostringstream os;
   SerializeBinaryTree(root, os);
   std::istringstream is;
@@ -137,11 +137,11 @@ TEST_F(CompleteBinaryTreeFixture, SerializeBinaryTree) {
   EXPECT_TRUE(IsSameBinaryTree(root, new_root));
 }
 
-TEST_F(CompleteBinaryTreeFixture, BinaryTreeIsBalance) {
+TEST_F(FullBinaryTreeFixture, BinaryTreeIsBalance) {
   EXPECT_TRUE(BinaryTreeIsBalance(root));
 }
 
-TEST_F(CompleteBinaryTreeFixture, GetBinaryTreeInorderWalkNext) {
+TEST_F(FullBinaryTreeFixture, GetBinaryTreeInorderWalkNext) {
   auto node = root->left->left;
   node = GetBinaryTreeInorderWalkNext(node);
   EXPECT_EQ(node->value, 2);
