@@ -111,7 +111,6 @@ int QueueInLinkList::Pop() {
       tail = nullptr;
     }
     delete deleted_node;
-    deleted_node = nullptr;
     return value;
   } else {
     throw invalid_operation("queue is empty");

@@ -100,7 +100,6 @@ void StackInLinkList::Pop() {
       tail->next = nullptr;
     }
     delete deleted_node;
-    deleted_node = nullptr;
   } else {
     throw invalid_operation("stack is empty");
   }

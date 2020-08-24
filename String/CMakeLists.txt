@@ -11,7 +11,8 @@ set(HEADER_FILES
         simple_regular_expression.h
         string_permutation.h
         translate_number_to_string.h
-        char_hash_table.h)
+        char_hash_table.h
+        simple_compress_string.h)
 
 set(SOURCE_FILES
         string_to_int.cpp
@@ -23,6 +24,7 @@ set(SOURCE_FILES
         simple_regular_expression.cpp
         string_permutation.cpp
         translate_number_to_string.cpp
-        char_hash_table.cpp)
+        char_hash_table.cpp
+        simple_compress_string.cpp)
 
 add_library(String STATIC ${SOURCE_FILES} ${HEADER_FILES})

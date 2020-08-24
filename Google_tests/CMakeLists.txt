@@ -25,7 +25,7 @@ add_executable(Google_Tests_run
         LinkList/LinkListDeleteDuplicationTest.cpp
         LinkList/MergeLinkListTest.cpp
         LinkList/FindFirstCommonNodeOfLinkListTest.cpp
-        LinkList/OtherLinkListTest.cpp
+        LinkList/CheckPalindromicStringInLinkListTest.cpp
         StackAndQueue/QueueTest.cpp
         StackAndQueue/StackTest.cpp
         StackAndQueue/IsPopOrderOfStackTest.cpp
@@ -81,7 +81,8 @@ add_executable(Google_Tests_run
         Array/SumOfNumbersTest.cpp
         StackAndQueue/QueueWithMaxTest.cpp
         Other/JosephuseCircleTest.cpp
-        SkillAndThought/MaxProfitOfStockTest.cpp)
+        SkillAndThought/MaxProfitOfStockTest.cpp
+        String/SimpleCompressStringTest.cpp)
 
 # linking Google_Tests_run with Tree which will be tested
 target_link_libraries(Google_Tests_run

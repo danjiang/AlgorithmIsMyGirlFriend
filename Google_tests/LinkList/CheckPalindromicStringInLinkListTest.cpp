@@ -6,7 +6,7 @@
 
 #include "check_palindromic_string_in_link_list.h"
 
-TEST(OtherLinkList, ConstructBinaryTree) {
+TEST(CheckPalindromicStringInLinkList, NormalCase) {
   std::string str1 {"abcccba"};
   EXPECT_TRUE(CheckPalindromicStringInLinkList(str1.c_str()));
   std::string str2 {"abcccbm"};

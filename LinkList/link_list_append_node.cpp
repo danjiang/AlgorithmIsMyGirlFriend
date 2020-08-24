@@ -5,9 +5,13 @@
 #include "link_list_append_node.h"
 
 ListNode* LinkListAppendNode(ListNode **head, int value) {
-  ListNode *new_node = new ListNode(value);
+  if (head == nullptr) {
+    return nullptr;
+  }
 
-  if (head == nullptr || *head == nullptr) {
+  auto new_node = new ListNode(value);
+
+  if (*head == nullptr) {
     *head = new_node;
   } else {
     ListNode *node = *head;

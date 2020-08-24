@@ -30,7 +30,6 @@ ListNode* FindNodeInFIFOCache(int value, ListNode **head, int max_size) {
         prev_node->next = new_node;
       }
       delete deleted_node;
-      deleted_node = nullptr;
     } else {
       if (prev_node == nullptr) {
         *head = new_node;
@@ -97,7 +96,6 @@ ListNode* FindNodeInLFUCache(int value, ListNode **head, int max_size) {
         prev_prev_node->next = new_node;
       }
       delete deleted_node;
-      deleted_node = nullptr;
     } else {
       if (prev_node == nullptr) {
         *head = new_node;
@@ -145,7 +143,6 @@ ListNode* FindNodeInLRUCache(int value, ListNode **head, int max_size) {
         *head = new_node;
       }
       delete deleted_node;
-      deleted_node = nullptr;
     } else {
       new_node->next = *head;
       *head = new_node;
