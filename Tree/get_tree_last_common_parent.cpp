@@ -32,10 +32,8 @@ TreeNode* GetLastCommonNode(std::vector<TreeNode *> &path1, std::vector<TreeNode
 
   TreeNode *last = nullptr;
 
-  while (it1 != path1.end() && it2 != path2.end()) {
-    if (*it1 == *it2) {
-      last = *it1;
-    }
+  while (it1 != path1.end() && it2 != path2.end() && *it1 == *it2) {
+    last = *it1;
     it1++;
     it2++;
   }
