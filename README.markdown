@@ -915,7 +915,8 @@ AC 自动机算法，全称是 Aho-Corasick 算法。其实，Trie 树跟 AC 自
 - [字符串转数字: 26 进制的大写字母](String/string_to_int.cpp)：如 A=1, B=2, C=3, ..., Z=26, AA=27, AB=28。
 - [翻转单词顺序](String/reverse_string.cpp)：输入一个英文句子，翻转句子中单词的顺序，但单词内字符的顺序不变。为简单起见，标点符号和普通字母一样处理。例如输入字符串 "I am a student."，则输出 "student. a am I"。
 - [左旋转字符串](String/reverse_string.cpp)：字符串的左旋转操作是把字符串前面的若干个字符转移到字符串的尾部，比如，输入字符串 "abcdefg" 和数字 2，该函数将返回左旋转两位得到的结果 "cdefgab"。
-- [字符串压缩](String/simple_compress_string.cpp)：给定由普通英文字母组成的非空字符串 s1，要求将连续出现的字符压缩成字符和该字符连续出现的次数，并返回新的字符串 s2，s1 字符串的长度不超过 100。如 "abccccaaa" 压缩为 "a2bc4a3"。 
+- [字符串压缩](String/simple_compress_string.cpp)：给定由普通英文字母组成的非空字符串 s1，要求将连续出现的字符压缩成字符和该字符连续出现的次数，次数可能超过 9，并返回新的字符串 s2，s1 字符串的长度不超过 100。如 "abccccaaa" 压缩为 "a2bc4a3"。 
+- [字符串压缩](String/simple_compress_string.cpp)：利用字符重复出现的次数，编写一个方法，实现基本的字符串压缩功能。比如，字符串 "aabcccccaaa" 经压缩会变成 "a2b1c5a3"。若压缩后的字符串没有变短，则返回原先的字符串。
 
 ## 位运算
 
