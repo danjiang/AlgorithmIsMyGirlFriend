@@ -41,7 +41,7 @@ void Merge(int array[], int start, int middle, int end) {
 }
 
 // https://www.raywenderlich.com/741-swift-algorithm-club-swift-merge-sort
-// O(n log n) Fast sort, but needs a temporary "working" array equal in size to the array being sorted.
+// O(nlogn) Fast sort, but needs a temporary "working" array equal in size to the array being sorted.
 void MergeSort(int array[], int size, int start, int end) {
   if (start == end) {
     return;

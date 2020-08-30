@@ -12,7 +12,7 @@ int CountTranslatedNumberToString(const std::string &number) {
   int next_count = 0;
   int count = 0;
 
-  for (int i = length - 1; i >= 0; --i) {
+  for (int i = length - 1; i >= 0; --i) { // from low to high of digit
     count = 0;
     if (i < length - 1) {
       count = next_count;
@@ -21,9 +21,9 @@ int CountTranslatedNumberToString(const std::string &number) {
     }
 
     if (i < length - 1) {
-      int digit = number[i] - '0';
-      int next_digit = number[i + 1] - '0';
-      int alpha = digit * 10 + next_digit;
+      int digit_high = number[i] - '0';
+      int digit_low = number[i + 1] - '0';
+      int alpha = digit_high * 10 + digit_low;
       if (alpha >= 10 && alpha <= 25) {
         if (i < length - 2) {
           count += next_next_count;

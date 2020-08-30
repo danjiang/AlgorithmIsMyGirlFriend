@@ -26,7 +26,7 @@ int Partition(int array[], int start, int end) {
   return small;
 }
 
-// O(n log n) Fast sort, in-place sort.
+// O(nlogn) Fast sort, in-place sort.
 void QuickSort(int array[], int size, int start, int end) {
   if (start == end) {
     return;
