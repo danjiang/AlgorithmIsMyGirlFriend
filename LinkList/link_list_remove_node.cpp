@@ -26,10 +26,7 @@ void LinkListRemoveNode(ListNode **head, int value) {
       next_node = next_node->next;
     }
   }
-  if (deleted_node != nullptr) {
-    delete deleted_node;
-    deleted_node = nullptr;
-  }
+  delete deleted_node;
 }
 
 void LinkListDeleteNode(ListNode **head, ListNode *deleted_node) {
@@ -38,17 +35,15 @@ void LinkListDeleteNode(ListNode **head, ListNode *deleted_node) {
   }
 
   if (deleted_node->next != nullptr) { // not last node
-    ListNode *next_node = deleted_node->next;
+    auto next_node = deleted_node->next;
     deleted_node->value = next_node->value;
     deleted_node->next = next_node->next;
 
     delete next_node;
-    next_node = nullptr;
   } else if ((*head)->next == nullptr) { // only one node
     *head = nullptr;
 
     delete deleted_node;
-    deleted_node = nullptr;
   } else { // last node
     ListNode *node = *head;
     while (node->next->next != nullptr) { // node before last node
@@ -57,7 +52,6 @@ void LinkListDeleteNode(ListNode **head, ListNode *deleted_node) {
     node->next = nullptr;
 
     delete deleted_node;
-    deleted_node = nullptr;
   }
 }
 
@@ -72,10 +66,10 @@ void LinkListDeleteDuplication(ListNode **head) {
     ListNode *next_node = node->next;
     bool need_delete = false;
     while (next_node != nullptr && node->value == next_node->value) {
-      delete next_node;
-
+      ListNode *deleted_node = next_node;
       next_node = next_node->next;
       need_delete = true;
+      delete deleted_node;
     }
     if (need_delete) {
       delete node;
