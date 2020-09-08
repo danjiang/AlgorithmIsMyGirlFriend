@@ -15,7 +15,8 @@ set(HEADER_FILES
         binary_search2.h
         find_more_than_half_number_in_unsorted_array.h
         find_min_kth_in_unsorted_array.h
-        heap_sort.h)
+        heap_sort.h
+        find_max_in_asc_desc_array.h)
 
 set(SOURCE_FILES
         bubble_sort.cpp
@@ -31,6 +32,7 @@ set(SOURCE_FILES
         binary_search2.cpp
         find_more_than_half_number_in_unsorted_array.cpp
         find_min_kth_in_unsorted_array.cpp
-        heap_sort.cpp)
+        heap_sort.cpp
+        find_max_in_asc_desc_array.cpp)
 
 add_library(SortAndFind STATIC ${SOURCE_FILES} ${HEADER_FILES})

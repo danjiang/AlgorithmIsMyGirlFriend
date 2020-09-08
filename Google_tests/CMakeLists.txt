@@ -82,7 +82,7 @@ add_executable(Google_Tests_run
         StackAndQueue/QueueWithMaxTest.cpp
         Other/JosephuseCircleTest.cpp
         SkillAndThought/MaxProfitOfStockTest.cpp
-        String/SimpleCompressStringTest.cpp)
+        String/SimpleCompressStringTest.cpp SortAndFind/FindMaxInAscDescArrayTest.cpp)
 
 # linking Google_Tests_run with Tree which will be tested
 target_link_libraries(Google_Tests_run
